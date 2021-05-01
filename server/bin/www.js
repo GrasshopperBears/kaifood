@@ -5,6 +5,7 @@
  */
 
 import app from "../app";
+import { Server as WsServer } from "socket.io";
 import http from "http";
 import debug_module from "debug";
 
@@ -22,6 +23,11 @@ app.set("port", port);
  */
 
 const server = http.createServer(app);
+
+const io = new WsServer(server);
+io.on("connection", (socket) => {
+  console.log("socket connected");
+});
 
 /**
  * Event listener for HTTP server "error" event.
