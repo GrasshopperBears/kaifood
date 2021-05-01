@@ -4,6 +4,18 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const connectDb = async () => {
+  try {
+    await mongoose.connect(process.env.DB_STRING, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    });
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 if (process.env.NODE_ENV == "development") {
   const { SSH_USER, SSH_PASSWORD, SSH_HOST, SSH_PORT, DB_HOST, DB_PORT } = process.env;
   const sshConfig = {
@@ -17,16 +29,8 @@ if (process.env.NODE_ENV == "development") {
 
   tunnel(sshConfig, (error) => {
     if (error) throw error;
-    mongoose.connect(process.env.DB_STRING, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    });
+    connectDb();
   });
-} else {
-  mongoose.connect(process.env.DB_STRING, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  });
-}
+} else connectDb();
 
 export default mongoose;
