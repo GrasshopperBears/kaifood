@@ -10,6 +10,7 @@ const restaurantSchema = new mongoose.Schema({
   restaurantType: { type: String, enum: types, required: true },
   time: { type: [{ type: String }] },
   provideReservation: { type: Boolean, default: false },
+  approved: { type: Boolean, default: false },
 });
 
 const Restaurants = mongoose.model("Restaurant", restaurantSchema);

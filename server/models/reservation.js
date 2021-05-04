@@ -9,6 +9,7 @@ const reservationSchema = new mongoose.Schema({
   uid: { type: mongoose.Schema.Types.ObjectId, required: true },
   rid: { type: mongoose.Schema.Types.ObjectId, required: true },
   time: { type: Date, required: true },
+  pending: { type: Boolean, default: true },
   approved: { type: Boolean, default: false },
   peopleNumber: Number,
   memo: String,
