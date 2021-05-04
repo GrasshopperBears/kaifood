@@ -1,4 +1,4 @@
-import { default as GeneralMainPage } from "./general/Main";
+import { default as GeneralMainPage } from "./general/MainPage";
 import { default as UserReservationPage } from "./general/ReservationPage";
 import RestaurantGeneralPage from "./general/RestaurantGeneralPage";
 import RestaurantInsidePage from "./general/RestaurantInsidePage";
