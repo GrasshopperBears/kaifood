@@ -1,17 +1,9 @@
 import axios from "axios";
 import cheerio from "cheerio";
+import restaurantCodes from "./restaurantCodes.js";
 
-const restaurantCodes = {
-  north: "fclt",
-  west: "west",
-  east: "east1",
-  eastFacaulty: "east2",
-  facaultyHall: "emp",
-  moonji: "icc",
-  hwaAm: "hawam",
-  seoul: "seoul",
-};
-
+let repeatCount = 0;
+const REPEAT_MAX_COUNT = 5;
 const getUrl = (restaurantCode, date) => {
   const prefix = "https://kaist.ac.kr/kr/html/campus/053001.html?dvs_cd=";
   const datePrefix = "&stt_dt=";
@@ -71,9 +63,17 @@ const crawlEachRestaurant = async (restaurant) => {
 const main = async () => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const crawlData = {};
-  for (let [key, val] of Object.entries(restaurantCodes)) {
+  for (let [key, _] of Object.entries(restaurantCodes)) {
     const restaurantCrawl = await crawlEachRestaurant(key);
     crawlData[key] = restaurantCrawl;
+  }
+  try {
+    await axios.post("http://localhost:4000/api/menu-in-campus", { crawlData });
+  } catch (e) {
+    console.error(e);
+    repeatCount++;
+    if (repeatCount > REPEAT_MAX_COUNT) return;
+    return main();
   }
 };
 
