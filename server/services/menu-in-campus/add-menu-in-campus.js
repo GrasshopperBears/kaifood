@@ -18,7 +18,7 @@ const addMenuInCampus = async (req, res, next) => {
         menuList[idx] = rawMenu[idx.toString()];
       }
       try {
-        await MenusInCampus.findOneAndUpdate({ rid: resutaurant._id, date }, { menuList }, { upsert: true });
+        await MenusInCampus.findOneAndUpdate({ restaurant: resutaurant._id, date }, { menuList }, { upsert: true });
       } catch (e) {
         console.error(e);
         return res.sendStatus(500);
