@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const announcementSchema = new mongoose.Schema({
-  rid: { type: mongoose.Schema.Types.ObjectId, required: true },
+  restaurant: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Restaurant" },
   title: { type: String, required: true },
   content: String,
 });

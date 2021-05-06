@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const menuInCampusSchema = new mongoose.Schema({
-  rid: mongoose.Schema.Types.ObjectId,
+  restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
   date: Date,
   menuList: { type: [[{ type: String }]] },
 });

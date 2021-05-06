@@ -6,8 +6,8 @@ const orderSchema = new mongoose.Schema({
 });
 
 const reservationSchema = new mongoose.Schema({
-  uid: { type: mongoose.Schema.Types.ObjectId, required: true },
-  rid: { type: mongoose.Schema.Types.ObjectId, required: true },
+  customer: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
   time: { type: Date, required: true },
   pending: { type: Boolean, default: true },
   approved: { type: Boolean, default: false },
