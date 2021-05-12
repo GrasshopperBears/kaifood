@@ -1,5 +1,6 @@
 import { default as GeneralMainPage } from "./general/MainPage";
 import { default as UserReservationPage } from "./general/ReservationPage";
+import MyPage from "./general/MyPage";
 import RestaurantGeneralPage from "./general/RestaurantGeneralPage";
 import RestaurantInsidePage from "./general/RestaurantInsidePage";
 import RestaurantOutsidePage from "./general/RestaurantOutsidePage";
@@ -15,6 +16,7 @@ import NotFoundPage from "./NotFoundPage";
 
 const Pages = {
   GeneralMainPage,
+  MyPage,
   UserReservationPage,
   RestaurantGeneralPage,
   RestaurantInsidePage,

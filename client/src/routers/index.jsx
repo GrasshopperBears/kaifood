@@ -9,6 +9,7 @@ const MainRouter = () => {
         <Route exact path="/" component={Pages.GeneralMainPage} />
         <Route exact path="/signup" component={Pages.SignupPage} />
         <Route exact path="/signin" component={Pages.SigninPage} />
+        <Route exact path="/mypage" component={Pages.MyPage} />
         <Route exact path="/reservation" component={Pages.UserReservationPage} />
         <Route path="/restaurant/inside/:id" component={Pages.RestaurantInsidePage} />
         <Route path="/restaurant/general/:id" component={Pages.RestaurantGeneralPage} />
