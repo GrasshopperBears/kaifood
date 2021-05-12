@@ -6,6 +6,9 @@
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
       "@routers/*": ["./src/routers/*"],
+      "@actions/*": ["./src/store/actions/*"],
+      "@reducers/*": ["./src/store/reducers/*"],
+      "@store/*": ["./src/store/*"],
       "@services/*": ["./src/services/*"]
     }
   }
