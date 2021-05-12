@@ -4,6 +4,7 @@ const theme = {
   color: {
     textColor: "#24292e",
     secondaryTextColor: "#586069",
+    borderGray: "#b1b1b1",
     darkPurple: "rgba(31, 26, 56, 0.9)",
     mistyRose: "rgba(239, 210, 203, 0.3)",
   },
@@ -16,6 +17,9 @@ const theme = {
   },
   radius: {
     md: "6px",
+  },
+  padding: {
+    sidePadding: "30px",
   },
 };
 
@@ -59,6 +63,14 @@ const GlobalStyle = createGlobalStyle`
   
   a {
     text-decoration: none;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .ant-popover-inner-content {
+    padding: 0 28px;
   }
 
   #app {
