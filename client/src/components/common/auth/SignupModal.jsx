@@ -1,13 +1,19 @@
 import React from "react";
-import { Modal, Form, Input } from "antd";
+import firebase from "app-firebase";
+import { Modal, Form, Input, message } from "antd";
 import styled from "styled-components";
 
 const SignupModal = ({ visible, hideSignupModal }) => {
   const [form] = Form.useForm();
-  const submitHandler = () => {
-    form.validateFields().then((values) => {
-      // TODO: values로 회원가입 진행
-    });
+  const submitHandler = async () => {
+    message.loading("회원가입 중입니다", 0);
+    const { email, password, realName, nickname } = await form.validateFields();
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+    } catch (e) {
+      message.destroy();
+      firebaseSignupErrorHandler(e);
+    }
   };
 
   return (
@@ -33,9 +39,27 @@ const SignupModal = ({ visible, hideSignupModal }) => {
         >
           <Input.Password />
         </FormItemStyled>
-        <FormItemStyled label="비밀번호 확인" name="passwordCheck" rules={[{ required: true, message: "비밀번호를 입력해주세요" }]}>
+        <Form.Item
+          label="비밀번호 확인"
+          name="confirm"
+          dependencies={["password"]}
+          rules={[
+            {
+              required: true,
+              message: "비밀번호를 다시 한 번 입력해주세요",
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("password") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error("위에서 입력한 비밀번호와 다릅니다"));
+              },
+            }),
+          ]}
+        >
           <Input.Password />
-        </FormItemStyled>
+        </Form.Item>
         <FormItemStyled label="이름" name="realName" rules={[{ required: true, message: "이름을 입력해주세요" }]}>
           <Input />
         </FormItemStyled>
@@ -48,5 +72,33 @@ const SignupModal = ({ visible, hideSignupModal }) => {
 };
 
 const FormItemStyled = styled(Form.Item)``;
+
+const firebaseSignupErrorHandler = (e) => {
+  const { code } = e;
+  switch (code) {
+    case "auth/email-already-in-use":
+      message.error({
+        content: (
+          <>
+            <p>이미 가입된 이메일입니다.</p>
+            <p>다른 이메일로 가입해주세요.</p>
+          </>
+        ),
+      });
+      break;
+    default:
+      message.error(
+        message.error({
+          content: (
+            <>
+              <p>가입 중 오류가 발생했습니다.</p>
+              <p>다시 시도해주세요.</p>
+            </>
+          ),
+        })
+      );
+      break;
+  }
+};
 
 export default SignupModal;
