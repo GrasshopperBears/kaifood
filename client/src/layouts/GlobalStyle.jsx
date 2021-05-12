@@ -4,6 +4,8 @@ const theme = {
   color: {
     textColor: "#24292e",
     secondaryTextColor: "#586069",
+    darkPurple: "rgba(31, 26, 56, 0.9)",
+    mistyRose: "rgba(239, 210, 203, 0.3)",
   },
   fontSize: {
     xl: "32px",
@@ -11,6 +13,9 @@ const theme = {
     md: "16px",
     sm: "14px",
     xs: "12px",
+  },
+  radius: {
+    md: "6px",
   },
 };
 
