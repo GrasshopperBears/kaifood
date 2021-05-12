@@ -9,6 +9,7 @@ import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 const Header = () => {
   const history = useHistory();
   const [menuVisible, setMenuVisible] = useState(false);
+  const [userMenuVisible, setUserMenuVisible] = useState(false);
 
   const openMenu = useCallback(() => {
     setMenuVisible(true);
@@ -19,13 +20,25 @@ const Header = () => {
   const goMainPage = useCallback(() => {
     history.push("/");
   }, [history]);
+  const userMenuVisibleHandler = useCallback((visible) => {
+    setUserMenuVisible(visible);
+  }, []);
+  const closeUserMenu = useCallback(() => {
+    setUserMenuVisible(false);
+  }, []);
 
   return (
     <>
       <HeaderStyled>
         <MenuButton onClick={openMenu} icon={<MenuOutlined />} />
         <Title onClick={goMainPage}>밥상</Title>
-        <Popover placement="bottomRight" content={<UserMenu />} trigger="click">
+        <Popover
+          visible={userMenuVisible}
+          onVisibleChange={userMenuVisibleHandler}
+          placement="bottomRight"
+          content={<UserMenu closeUserMenu={closeUserMenu} />}
+          trigger="click"
+        >
           <UserBtn icon={<UserOutlined />} shape="circle" />
         </Popover>
       </HeaderStyled>

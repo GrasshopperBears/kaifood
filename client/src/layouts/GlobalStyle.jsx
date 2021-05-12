@@ -68,10 +68,19 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
   }
-
+  /******************************** */
+  /* antd design 관련 global setting */
+  /******************************** */
   .ant-popover-inner-content {
     padding: 0 28px;
   }
+
+  .ant-modal {
+    top: 50px;
+  }
+  /******************************** */
+  /* -------antd setting end------- */
+  /******************************** */
 
   #app {
     width: 100%;

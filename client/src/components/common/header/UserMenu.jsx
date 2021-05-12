@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
 
 const MenuSingle = ({ content, action }) => {
@@ -9,51 +10,55 @@ const MenuSingle = ({ content, action }) => {
 
 const AuthorizedUserMenus = () => {
   const history = useHistory();
+  const goReservationPage = useCallback(() => {
+    history.push("/reservation");
+  }, [history]);
+  const goMypage = useCallback(() => {
+    history.push("/mypage");
+  }, [history]);
   const logoutHandler = () => {};
 
   return (
     <>
-      <MenuSingle
-        content="예약 내역"
-        action={() => {
-          history.push("/reservation");
-        }}
-      />
-      <MenuSingle
-        content="마이페이지"
-        action={() => {
-          history.push("/mypage");
-        }}
-      />
+      <MenuSingle content="예약 내역" action={goReservationPage} />
+      <MenuSingle content="마이페이지" action={goMypage} />
       <MenuSingle content="로그아웃" action={logoutHandler} />
     </>
   );
 };
 
-const UnauthorizedUserMenu = () => {
-  const history = useHistory();
+const UnauthorizedUserMenu = ({ closeUserMenu }) => {
+  const [signupVisible, setSignupVisible] = useState(false);
+  const [signinVisible, setSigninVisible] = useState(false);
+
+  const showSignupModal = useCallback(() => {
+    closeUserMenu();
+    setSignupVisible(true);
+  }, []);
+  const hideSignupModal = useCallback(() => {
+    setSignupVisible(false);
+  }, []);
+  const showSigninModal = useCallback(() => {
+    closeUserMenu();
+    setSigninVisible(true);
+  }, []);
+  const hideSigninModal = useCallback(() => {
+    setSigninVisible(false);
+  }, []);
+
   return (
     <>
-      <MenuSingle
-        content="로그인"
-        action={() => {
-          history.push("/signin");
-        }}
-      />
-      <MenuSingle
-        content="회원가입"
-        action={() => {
-          history.push("/signup");
-        }}
-      />
+      <MenuSingle content="로그인" action={showSigninModal} />
+      <MenuSingle content="회원가입" action={showSignupModal} />
+      <SignupModal hideSignupModal={hideSignupModal} visible={signupVisible} />
     </>
   );
 };
 
-const UserMenu = () => {
+const UserMenu = ({ closeUserMenu }) => {
   // const authorized = useSelector((state) => state.userTracker.authorized);
   const authorized = false;
-  return <>{authorized ? <AuthorizedUserMenus /> : <UnauthorizedUserMenu />}</>;
+  return <>{authorized ? <AuthorizedUserMenus /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />}</>;
 };
 
 const MenuSingleStyled = styled.div`
