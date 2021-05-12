@@ -11,6 +11,7 @@ module.exports = {
       "@reducers": path.resolve(__dirname, "src/store/reducers"),
       "@store": path.resolve(__dirname, "src/store"),
       "@services": path.resolve(__dirname, "src/services"),
+      "app-firebase": path.resolve(__dirname, "src/firebase-config.js"),
     },
   },
 };

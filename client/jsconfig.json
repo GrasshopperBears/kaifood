@@ -9,7 +9,8 @@
       "@actions/*": ["./src/store/actions/*"],
       "@reducers/*": ["./src/store/reducers/*"],
       "@store/*": ["./src/store/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "app-firebase": ["./src/firebase-config.js"]
     }
   }
 }
