@@ -1,3 +1,5 @@
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "@layouts/GlobalStyle";
 import "antd/dist/antd.css";
 
 export const parameters = {
@@ -9,3 +11,12 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Story />
+    </ThemeProvider>
+  ),
+];
