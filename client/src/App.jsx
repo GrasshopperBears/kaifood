@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import MainRouter from "@routers/index";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import firebase from "app-firebase";
 import reducers from "@store";
 import Header from "@components/common/header/Header";
 import { ThemeProvider } from "styled-components";

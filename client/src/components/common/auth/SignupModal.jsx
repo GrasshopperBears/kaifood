@@ -57,7 +57,7 @@ const SignupModal = ({ visible, hideSignupModal }) => {
         >
           <Input.Password />
         </FormItemStyled>
-        <Form.Item
+        <FormItemStyled
           label="비밀번호 확인"
           name="confirm"
           dependencies={["password"]}
@@ -77,7 +77,7 @@ const SignupModal = ({ visible, hideSignupModal }) => {
           ]}
         >
           <Input.Password />
-        </Form.Item>
+        </FormItemStyled>
         <FormItemStyled label="이름" name="realName" rules={[{ required: true, message: "이름을 입력해주세요" }]}>
           <Input />
         </FormItemStyled>
@@ -105,16 +105,15 @@ const firebaseSignupErrorHandler = (e) => {
       });
       break;
     default:
-      message.error(
-        message.error({
-          content: (
-            <>
-              <p>가입 중 오류가 발생했습니다.</p>
-              <p>다시 시도해주세요.</p>
-            </>
-          ),
-        })
-      );
+      message.error({
+        content: (
+          <>
+            <p>회원가입 중 오류가 발생했습니다.</p>
+            <p>다시 시도해주세요.</p>
+          </>
+        ),
+      });
+
       break;
   }
 };

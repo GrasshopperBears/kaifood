@@ -2,7 +2,8 @@ import React, { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import firebase from "app-firebase";
-import { userCheckLogin, userLogin, userLogout } from "@actions/user";
+import { userLogout } from "@actions/user";
+import SigninModal from "@components/common/auth/SigninModal";
 import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
 
@@ -60,21 +61,13 @@ const UnauthorizedUserMenu = ({ closeUserMenu }) => {
       <MenuSingle content="로그인" action={showSigninModal} />
       <MenuSingle content="회원가입" action={showSignupModal} />
       <SignupModal hideSignupModal={hideSignupModal} visible={signupVisible} />
+      <SigninModal hideSigninModal={hideSigninModal} visible={signinVisible} />
     </>
   );
 };
 
 const UserMenu = ({ closeUserMenu }) => {
-  const dispatch = useDispatch();
   const { authorized, initialized } = useSelector((state) => state.userTracker);
-
-  const checkUserState = (user) => {
-    if (!initialized) {
-      console.log(initialized);
-      if (user) dispatch(userLogin());
-      else dispatch(userCheckLogin());
-    }
-  };
 
   return (
     <>
