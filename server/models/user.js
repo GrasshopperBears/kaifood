@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  nickname: { type: String, required: true, unique: true },
-  name: { type: String, required: true },
+  uid: { type: String, required: true, unique: true },
+  nickname: { type: String, required: true },
+  realname: { type: String, required: true },
   userType: {
     type: [{ type: String, enum: ["user", "owner"] }],
+    default: "user",
   },
 });
 

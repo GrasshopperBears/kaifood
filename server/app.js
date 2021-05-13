@@ -3,6 +3,7 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import cors from "cors";
 
 import indexRouter from "./routes/index";
 import "./models";
@@ -11,6 +12,7 @@ const app = express();
 const __dirname = path.resolve();
 const development = process.env.NODE_ENV == "development";
 
+app.use(cors({ origin: process.env.CLIENT_ADDR }));
 app.use(logger(development ? "dev" : "default"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
