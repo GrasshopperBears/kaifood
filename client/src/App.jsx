@@ -3,7 +3,6 @@ import MainRouter from "@routers/index";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducers from "@store";
-import Header from "@components/common/header/Header";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "@layouts/GlobalStyle";
 import { ConfigProvider } from "antd";
@@ -25,7 +24,6 @@ const App = () => {
         <GlobalStyle />
         <Provider store={store}>
           <ConfigProvider locale={koKR}>
-            <Header />
             <MainRouter />
           </ConfigProvider>
         </Provider>

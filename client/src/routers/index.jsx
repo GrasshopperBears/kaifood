@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Pages from "@pages/index";
+import Header from "@components/common/header/Header";
 
 const MainRouter = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route exact path="/" component={Pages.GeneralMainPage} />
         <Route exact path="/signup" component={Pages.SignupPage} />

@@ -14,9 +14,8 @@ const SignupModal = ({ visible, hideSignupModal }) => {
     message.loading("회원가입 중입니다", 0);
     const { email, password, realName, nickname } = await form.validateFields();
     try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
       await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-      await firebase.auth().signInWithEmailAndPassword(email, password);
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
       const uid = firebase.auth().currentUser.uid;
       const serverResult = await signup({ uid, realname: realName, nickname });
       if (serverResult.success) {

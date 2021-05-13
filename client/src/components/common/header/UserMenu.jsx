@@ -16,9 +16,11 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
   const history = useHistory();
 
   const goReservationPage = useCallback(() => {
+    closeUserMenu();
     history.push("/reservation");
   }, [history]);
   const goMypage = useCallback(() => {
+    closeUserMenu();
     history.push("/mypage");
   }, [history]);
   const logoutHandler = async () => {
