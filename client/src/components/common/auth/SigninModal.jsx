@@ -24,7 +24,7 @@ const SigninModal = ({ visible, hideSigninModal }) => {
   };
 
   return (
-    <Modal title="로그인" visible={visible} onOk={submitHandler} onCancel={hideSigninModal}>
+    <Modal title="로그인" visible={visible} onOk={submitHandler} onCancel={hideSigninModal} style={{ marginTop: "50px" }}>
       <Form form={form} name="signup">
         <FormItemStyled
           label="이메일"

@@ -78,6 +78,11 @@ const GlobalStyle = createGlobalStyle`
   .ant-modal {
     top: 50px;
   }
+
+  .ant-btn-primary{
+    border-color: rgba(31, 26, 56, 0.9);
+    background-color: rgba(31, 26, 56, 0.9);
+  }
   /******************************** */
   /* -------antd setting end------- */
   /******************************** */

@@ -6,12 +6,15 @@ import styled from "styled-components";
 const HeaderDrawer = ({ closeMenu, visible }) => {
   const history = useHistory();
   const goRestaurantInsidePage = useCallback(() => {
+    closeMenu();
     history.push("/restaurant/type/inside");
   }, [history]);
   const goRestaurantGeneralPage = useCallback(() => {
+    closeMenu();
     history.push("/restaurant/type/general");
   }, [history]);
   const goRestaurantOutsidePage = useCallback(() => {
+    closeMenu();
     history.push("/restaurant/type/outside");
   }, [history]);
 
@@ -19,7 +22,7 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
     <DrawerStyled onClose={closeMenu} visible={visible} closable={false} placement="left" width="220">
       <HeaderDrawerEach onClick={goRestaurantInsidePage}>교내 식당과 메뉴</HeaderDrawerEach>
       <HeaderDrawerEach onClick={goRestaurantGeneralPage}>교내 가게</HeaderDrawerEach>
-      <HeaderDrawerEach onClick={goRestaurantOutsidePage}>어은동 식당</HeaderDrawerEach>
+      <HeaderDrawerEach onClick={goRestaurantOutsidePage}>교외 식당</HeaderDrawerEach>
     </DrawerStyled>
   );
 };
