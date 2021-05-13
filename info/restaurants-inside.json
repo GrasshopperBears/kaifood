@@ -1,0 +1,316 @@
+[
+  {
+    "name": "카이마루(북측 카페테리아)",
+    "code": "north",
+    "phoneNumber": "042-350-2060",
+    "address": "학생식당 (N11)",
+    "restaurantType": "restarant-in",
+    "time": "조식 : 08:00 ~ 09:30 // 중식 : 11:30분 ~ 13:30 // 석식 : 17:30 ~ 19:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "서맛골(서측 식당)",
+    "code": "west",
+    "phoneNumber": "042-350-2046",
+    "address": "서측 학생회관 (W2)",
+    "restaurantType": "restarant-in",
+    "time": "조식 : 08:00 ~ 9:30 // 중식 : 11:30 ~ 14:00 // 석식 : 17:30 ~ 19:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "동맛골(동측 학생식당)",
+    "code": "east",
+    "phoneNumber": "042-350-2043",
+    "address": "교직원회관 (E5) 1층",
+    "restaurantType": "restarant-in",
+    "time": "조식 08:00 ~ 10:00 // 중식 11:30 ~ 14:00 // 라면 14:00 ~ 15:30 // 석식 17:30~19:00 (코로나로 인해 단축 운영중)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "동맛골(동측 교직원식당)",
+    "code": "eastFacaulty",
+    "phoneNumber": "042-350-2043",
+    "address": "교직원회관 (E5) 2층",
+    "restaurantType": "restarant-in",
+    "time": "중식 11:30 ~ 13:30 // 석식 17:30 ~ 19:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "교수회관",
+    "code": "facaultyHall",
+    "phoneNumber": "042-350-2039",
+    "address": "교수회관 (N6)",
+    "restaurantType": "restarant-in",
+    "time": "중식 : 11:20 ~ 1:30 // 석식 : 17:30~18:30",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "문지캠퍼스",
+    "code": "moonji",
+    "phoneNumber": "042-350-6727",
+    "address": "문지캠퍼스 식당동",
+    "restaurantType": "restarant-in",
+    "time": "조식 : 07:30~9:00 // 중식(라일락,스낵코너) : 11:00 ~ 13:00 // 석식(마로니애) : 17:00~18:40(식당 마감시간 19시)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "화암 기숙사 식당",
+    "code": "hwaAm",
+    "phoneNumber": "042-351-1004",
+    "address": "화암 기숙사",
+    "restaurantType": "restarant-in",
+    "time": "조식 : 07:30 ~ 9:00 // 중식 : 11:30 ~ 13:00 // 석식 : 17:30~18:40(식당 마감 시간 19시)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "서울캠퍼스 구내 식당",
+    "code": "seoul",
+    "phoneNumber": "02-958-3935",
+    "address": "서울캠퍼스 복지후생관",
+    "restaurantType": "restarant-in",
+    "time": "",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "카이마루 뚝배기",
+    "phoneNumber": "042-350-0891",
+    "address": "카이마루 (N11)",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 10:00~19:30(break time 14:30~16:00) / 토요일 10:00~18:30, 일요일 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "휴김밥전문점",
+    "phoneNumber": "042-350-0892",
+    "address": "카이마루 (N11)",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 08:00~19:30 / 토요일 10:00~14:30 / 일요일 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "오니기리와이규동",
+    "phoneNumber": "042-350-0893",
+    "address": "카이마루 (N11)",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 10:30~19:30 / break time 14:30~16:30 / 토요일 10:30~14:00 / 일요일 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "캠토",
+    "phoneNumber": "042-350-0872",
+    "address": "서울캠퍼스 복지후생관",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 09:00~19:00 (break time 없음)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "더큰도시락",
+    "phoneNumber": "042-350-0875",
+    "address": "서측 학생회관 2층",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 10:00~19:00 / 주말 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "태울관 뚝배기",
+    "phoneNumber": "042-350-0875",
+    "address": "태울관(N13) 2층",
+    "restaurantType": "restarant-in-others",
+    "time": "평일 일품 10:00~19:00 / 평일 야식 19:00~01:00 / 평일 자율배식 11:30~13:00 / 토요일 휴무 / 일요일 자율배식 11:30~13:00, 17:30~19:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "북측 학생회관",
+    "phoneNumber": "042-350-4958",
+    "address": "N12",
+    "restaurantType": "store-in",
+    "time": "평일 08:30~(익일)02:00 / 토요일 09:00~24:00 / 일요일 및 공휴일 : 09:00~(익일)02:00 (토요일, 일요일 점심시간 13:00~13:50)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "서측 학생회관",
+    "phoneNumber": "042-350-4954",
+    "address": "W2",
+    "restaurantType": "store-in",
+    "time": "평일 10:00~19:00(점심시간 : 13:10~14:00) / 주말 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "김병호 IT융합센터",
+    "phoneNumber": "042-350-0843",
+    "address": "N1",
+    "restaurantType": "store-in",
+    "time": "평일 10:00 ~ 19:00 (점심시간 13:10~14:00) / 주말 및 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "세종관",
+    "phoneNumber": "042-350-4956",
+    "address": "E8",
+    "restaurantType": "store-in",
+    "time": "매일 18:00 ~ (익일) 02:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "나들/여울관",
+    "phoneNumber": "042-350-4954",
+    "address": "W4",
+    "restaurantType": "store-in",
+    "time": "매일 18:00 ~ (익일) 02:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "희망/다솜관",
+    "phoneNumber": "042-350-4946",
+    "address": "W4-3",
+    "restaurantType": "store-in",
+    "time": "매일 18:00 ~ (익일) 02:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "미르/나래관",
+    "phoneNumber": "042-350-4957",
+    "address": "W6",
+    "restaurantType": "store-in",
+    "time": "코로나 19 기간동안 운영 중지",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "그라지에(Grazie)",
+    "phoneNumber": "042-350-0896",
+    "address": "KI빌딩(E4) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일(학기중-하계) : 08:30 ~ 22:00(last order 21:30) / 주말(토ㆍ일)하계 : 10:00~ 20:00 / 방학중(하계)  : 08:30 ~ 21:00 / 평일(학기중-동계) : 08:30~20:30(last order 20:00) / 방학중(동계) : 08:30~20:30 / 주말(토ㆍ일)동계 : 10:00~ 18:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "카페 잇(EAT)",
+    "phoneNumber": "042-867-5156",
+    "address": "인터네셔널센터(W2-1) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일(월~금): 09:00 ~ 17:00 / 주말 및 공휴일 휴무 (* 코로나19 확산 안정 시 영업시간 변동 예정)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "카페드롭탑",
+    "phoneNumber": "042-350-0890",
+    "address": "교육지원동(W8) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일 08:00~21:00 / 공휴일 10:00 ~ 21:00 / 주말 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "투썸플레이스",
+    "phoneNumber": "042-350-0871",
+    "address": "김병호·김삼열 IT 융합빌딩(N1) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일 07:00~23:30 / 주말 및 공휴일 10:00~21:00 / 명절 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "카페 오가다",
+    "phoneNumber": "042-350-0863",
+    "address": "학술문화관(E9) 2층",
+    "restaurantType": "cafe-in",
+    "time": "평일, 주말, 공휴일 08:30~21:30 (설·추석 연휴기간, 매월 셋째주 일요일 휴무)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "스무디킹",
+    "phoneNumber": "042-350-0866",
+    "address": "응용공학동(W1) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일(학기중) 08:00~22:00 / 평일(방학), 주말(학기중) 9:00~22:00 / 주말(방학) 10:00~22:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "카페드림",
+    "phoneNumber": "042-350-0851",
+    "address": "기계공학동(N7) 1층",
+    "restaurantType": "cafe-in",
+    "time": "매일 08:00 ~ 24:00 (일요일, 공휴일, 방학기간 중 영업시간은 추후 변동 가능)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "쥬스킹",
+    "phoneNumber": "042-350-0855",
+    "address": "카이마루(N11) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일 8:30~20:30 / 토요일 : 11:00-17:00 / 공휴일 휴무",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "파스쿠찌",
+    "phoneNumber": "042-863-8497",
+    "address": "정보전자공학동(E3) 1층",
+    "restaurantType": "cafe-in",
+    "time": "매일 8:00~23:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "뚜레쥬르",
+    "phoneNumber": "042-350-0899",
+    "address": "자연과학동 궁리실험관(E6-5) 1층",
+    "restaurantType": "cafe-in",
+    "time": "평일 및 주말 07:00~24:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "롯데리아",
+    "phoneNumber": "042-863-8944",
+    "address": "장영신 학생회관 2층(N13-1)",
+    "restaurantType": "cafe-in",
+    "time": "매일 08:00 ~ 22:00",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "써브웨이",
+    "phoneNumber": "042-863-7001",
+    "address": "정문술빌딩(E16)",
+    "restaurantType": "cafe-in",
+    "time": "평일 및 주말, 공휴일 (08:00-23:00)",
+    "provideReservation": false,
+    "approved": true
+  },
+  {
+    "name": "풀빛마루(PULBITMARU)",
+    "phoneNumber": "042-350-0365",
+    "address": "북측 학생회관(N12) 1층",
+    "restaurantType": "cafe-in",
+    "time": "08:30 ~ 18:50(18:30 주문 마감) (주말, 명절, 공휴일 휴무)",
+    "provideReservation": false,
+    "approved": true
+  }
+]
