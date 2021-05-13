@@ -1,5 +1,6 @@
 import React from "react";
 import firebase from "app-firebase";
+import signup from "@services/auth/signup";
 import { Modal, Form, Input, message } from "antd";
 import styled from "styled-components";
 
@@ -9,7 +10,17 @@ const SignupModal = ({ visible, hideSignupModal }) => {
     message.loading("회원가입 중입니다", 0);
     const { email, password, realName, nickname } = await form.validateFields();
     try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      const signupResult = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      const uid = signupResult.user.X.X;
+      const serverResult = await signup({ uid, realname: realName, nickname });
+      if (serverResult.success) {
+        message.destroy();
+        form.resetFields();
+        hideSignupModal();
+      } else {
+        message.destroy();
+        message.error(serverResult.message);
+      }
     } catch (e) {
       message.destroy();
       firebaseSignupErrorHandler(e);
