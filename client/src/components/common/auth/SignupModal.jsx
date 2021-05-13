@@ -1,22 +1,28 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import firebase from "app-firebase";
+import { userLogin } from "@actions/user";
 import signup from "@services/auth/signup";
 import { Modal, Form, Input, message } from "antd";
 import styled from "styled-components";
 
 const SignupModal = ({ visible, hideSignupModal }) => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
+
   const submitHandler = async () => {
     message.loading("회원가입 중입니다", 0);
     const { email, password, realName, nickname } = await form.validateFields();
     try {
-      const signupResult = await firebase.auth().createUserWithEmailAndPassword(email, password);
-      const uid = signupResult.user.X.X;
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      const uid = firebase.auth().currentUser.uid;
       const serverResult = await signup({ uid, realname: realName, nickname });
       if (serverResult.success) {
         message.destroy();
         form.resetFields();
         hideSignupModal();
+        dispatch(userLogin());
       } else {
         message.destroy();
         message.error(serverResult.message);

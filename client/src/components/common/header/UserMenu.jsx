@@ -1,6 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import firebase from "app-firebase";
+import { userLogout } from "@actions/user";
 import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
 
@@ -8,15 +11,22 @@ const MenuSingle = ({ content, action }) => {
   return <MenuSingleStyled onClick={action}>{content}</MenuSingleStyled>;
 };
 
-const AuthorizedUserMenus = () => {
+const AuthorizedUserMenus = ({ closeUserMenu }) => {
+  const dispatch = useDispatch();
   const history = useHistory();
+
   const goReservationPage = useCallback(() => {
     history.push("/reservation");
   }, [history]);
   const goMypage = useCallback(() => {
     history.push("/mypage");
   }, [history]);
-  const logoutHandler = () => {};
+  const logoutHandler = async () => {
+    closeUserMenu();
+    await firebase.auth().signOut();
+    dispatch(userLogout());
+    // 인증 필요한 페이지는 메인으로 리디렉션
+  };
 
   return (
     <>
@@ -56,9 +66,8 @@ const UnauthorizedUserMenu = ({ closeUserMenu }) => {
 };
 
 const UserMenu = ({ closeUserMenu }) => {
-  // const authorized = useSelector((state) => state.userTracker.authorized);
-  const authorized = false;
-  return <>{authorized ? <AuthorizedUserMenus /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />}</>;
+  const authorized = useSelector((state) => state.userTracker.authorized);
+  return <>{authorized ? <AuthorizedUserMenus closeUserMenu={closeUserMenu} /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />}</>;
 };
 
 const MenuSingleStyled = styled.div`

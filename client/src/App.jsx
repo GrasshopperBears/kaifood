@@ -1,6 +1,8 @@
+import React, { useEffect } from "react";
 import MainRouter from "@routers/index";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import firebase from "app-firebase";
 import reducers from "@store";
 import Header from "@components/common/header/Header";
 import { ThemeProvider } from "styled-components";
@@ -12,6 +14,12 @@ import koKR from "antd/lib/locale/ko_KR";
 const store = createStore(reducers);
 
 const App = () => {
+  const initAuthState = async () => {};
+
+  useEffect(() => {
+    initAuthState();
+  }, []);
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
