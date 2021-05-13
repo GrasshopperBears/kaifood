@@ -1,15 +1,30 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import UserMenu from "./UserMenu";
 import HeaderDrawer from "./HeaderDrawer";
+import { userCheckLogin, userLogin } from "@actions/user";
+import firebase from "app-firebase";
 import styled from "styled-components";
 import { Button, Popover } from "antd";
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [menuVisible, setMenuVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
+  const { initialized } = useSelector((state) => state.userTracker);
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (!initialized) {
+        if (user) dispatch(userLogin());
+        else dispatch(userCheckLogin());
+      }
+    });
+    return unsubscribe;
+  }, [initialized]);
 
   const openMenu = useCallback(() => {
     setMenuVisible(true);

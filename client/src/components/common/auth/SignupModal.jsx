@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import firebase from "app-firebase";
-import { userLogin } from "@actions/user";
 import signup from "@services/auth/signup";
+import { userLogin } from "@actions/user";
 import { Modal, Form, Input, message } from "antd";
 import styled from "styled-components";
 
@@ -15,6 +15,7 @@ const SignupModal = ({ visible, hideSignupModal }) => {
     const { email, password, realName, nickname } = await form.validateFields();
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       await firebase.auth().signInWithEmailAndPassword(email, password);
       const uid = firebase.auth().currentUser.uid;
       const serverResult = await signup({ uid, realname: realName, nickname });

@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import firebase from "app-firebase";
-import { userLogout } from "@actions/user";
+import { userCheckLogin, userLogin, userLogout } from "@actions/user";
 import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
 
@@ -66,8 +65,23 @@ const UnauthorizedUserMenu = ({ closeUserMenu }) => {
 };
 
 const UserMenu = ({ closeUserMenu }) => {
-  const authorized = useSelector((state) => state.userTracker.authorized);
-  return <>{authorized ? <AuthorizedUserMenus closeUserMenu={closeUserMenu} /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />}</>;
+  const dispatch = useDispatch();
+  const { authorized, initialized } = useSelector((state) => state.userTracker);
+
+  const checkUserState = (user) => {
+    if (!initialized) {
+      console.log(initialized);
+      if (user) dispatch(userLogin());
+      else dispatch(userCheckLogin());
+    }
+  };
+
+  return (
+    <>
+      {initialized &&
+        (authorized ? <AuthorizedUserMenus closeUserMenu={closeUserMenu} /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />)}
+    </>
+  );
 };
 
 const MenuSingleStyled = styled.div`
