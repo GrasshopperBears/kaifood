@@ -1,5 +1,4 @@
 import React from "react";
-
 import MainMenuCard from "@components/user-main/MainMenuCard";
 
 export default {
