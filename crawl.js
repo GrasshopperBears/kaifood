@@ -1,6 +1,6 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import restaurantCodes from "./info/restaurants-inside-code";
+import restaurantCodes from "./info/restaurants-inside-code.js";
 
 let repeatCount = 0;
 const REPEAT_MAX_COUNT = 5;

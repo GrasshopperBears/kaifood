@@ -1,36 +1,58 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { Card, Popover } from "antd";
+import { Card, Popover, Divider } from "antd";
 import styled from "styled-components";
 import { InfoCircleOutlined } from "@ant-design/icons";
 
-const MainMenuCard = ({ title, menus, info, code }) => {
+const MainMenuCard = ({ menus, info }) => {
   const history = useHistory();
   const clickHandler = (e) => {
     if (e.target.closest(".ant-popover")) return;
-    // history.push(`/restaurant/inside/${code}`);
+    history.push(`/restaurant/inside/${info.code}`);
   };
 
   return (
-    <CardStyled title={title} onClick={clickHandler} bordered={false} extra={<InfoPopover info={info} />}>
+    <CardStyled title={info.name} onClick={clickHandler} bordered={false} extra={<InfoPopover info={info} />}>
       {menus}
     </CardStyled>
   );
 };
-
 const InfoPopover = ({ info }) => {
   const clickHandler = useCallback((e) => {
     e.stopPropagation();
   }, []);
 
   return (
-    <Popover placement="left" overlayStyle={{ maxWidth: "60%" }} content={info} trigger="click" arrowPointAtCenter>
+    <Popover
+      placement="left"
+      overlayInnerStyle={{ padding: "20px 0" }}
+      overlayStyle={{ maxWidth: "70%" }}
+      content={<PopoverContent info={info} />}
+      trigger="click"
+      arrowPointAtCenter
+    >
       <InfoCircleOutlined onClick={clickHandler} />
     </Popover>
   );
 };
 
+const PopoverContent = ({ info }) => {
+  const { address, time } = info;
+  return (
+    <>
+      <p>위치 : {address}</p>
+      <Divider style={{ margin: "7px 0" }} />
+      {time[0].split("//").map((eachTime) => (
+        <p>{eachTime}</p>
+      ))}
+    </>
+  );
+};
+
 const CardStyled = styled(Card)`
+  margin: 15px 25px;
+  word-break: keep-all;
+
   .ant-card-head {
     min-height: 0;
     background-color: ${(props) => props.theme.color.darkPurple};

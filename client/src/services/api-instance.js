@@ -6,7 +6,8 @@ const apiInstance = axios.create({
 });
 
 apiInstance.interceptors.request.use((config) => {
-  config.headers["Authorization"] = firebase.auth().currentUser.uid ? firebase.auth().currentUser.uid : "";
+  config.headers["Authorization"] = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "";
+  return config;
 });
 
 export default apiInstance;
