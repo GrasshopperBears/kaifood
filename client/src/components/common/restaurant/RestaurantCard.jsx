@@ -1,19 +1,24 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { Card } from "antd";
+import { Card, Modal } from "antd";
 import styled from "styled-components";
 import { MdRestaurantMenu, MdLocationOn, MdAccessTime, MdPhone } from "react-icons/md";
 
-const RestaurantCard = ({ info, url, callHandler }) => {
+const RestaurantCard = ({ info, url }) => {
   const history = useHistory();
   const { name, phoneNumber, address, time } = info;
 
   const phoneCallHandler = useCallback(
     (e) => {
       e.stopPropagation();
-      callHandler(phoneNumber);
+      Modal.confirm({
+        title: "매장에 전화하시겠습니까?",
+        onOk: () => {
+          document.location.href = `tel:${phoneNumber}`;
+        },
+      });
     },
-    [callHandler, phoneNumber]
+    [phoneNumber]
   );
   const clickHandler = useCallback(() => {
     if (url) history.push(url);
@@ -23,7 +28,9 @@ const RestaurantCard = ({ info, url, callHandler }) => {
     <CardStyled title={name} onClick={clickHandler}>
       <div style={{ width: "100%" }}>
         <InfoStyled>
-          <MdAccessTime />
+          <IconWrapper>
+            <MdAccessTime />
+          </IconWrapper>
           {time}
         </InfoStyled>
         <InfoStyled>
@@ -46,6 +53,9 @@ const RestaurantCard = ({ info, url, callHandler }) => {
 };
 
 const CardStyled = styled(Card)`
+  margin: 5px 20px 10px 20px;
+  word-break: keep-all;
+
   .ant-card-head {
     min-height: 0;
     background-color: rgba(41, 110, 180, 0.95);
@@ -89,6 +99,10 @@ const MenuDiv = styled.div`
   width: 80px;
   height: 70px;
   font-size: 0.7rem;
+`;
+
+const IconWrapper = styled.div`
+  width: 30px;
 `;
 
 export default RestaurantCard;
