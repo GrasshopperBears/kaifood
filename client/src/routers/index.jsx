@@ -13,8 +13,9 @@ const MainRouter = () => {
         <Route exact path="/signin" component={Pages.SigninPage} />
         <Route exact path="/mypage" component={Pages.MyPage} />
         <Route exact path="/reservation" component={Pages.UserReservationPage} />
-        <Route path="/restaurant/inside/:id" component={Pages.RestaurantInsidePage} />
         <Route exact path="/restaurant/general" component={Pages.RestaurantGeneralPage} />
+        <Route exact path="/restaurant/in-campus" component={Pages.RestaurantInsidePage} />
+        <Route path="/restaurant/in-campus/:id" component={Pages.RestaurantInsideDetailPage} />
         <Route path="/restaurant/outside/:id" component={Pages.RestaurantOutsidePage} />
         <Route path="/restaurant/type/:type" component={Pages.RestaurantsByTypePage} />
         {/* 이하 추후 인증 라우터 추가 필요  */}

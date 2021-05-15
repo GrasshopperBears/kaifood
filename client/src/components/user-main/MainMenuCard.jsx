@@ -8,7 +8,7 @@ const MainMenuCard = ({ menus, info }) => {
   const history = useHistory();
   const clickHandler = (e) => {
     if (e.target.closest(".ant-popover")) return;
-    history.push(`/restaurant/inside/${info.code}`);
+    history.push(`/restaurant/in-campus/${info.code}`);
   };
 
   return (

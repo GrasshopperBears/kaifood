@@ -10,7 +10,7 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
   const history = useHistory();
   const goRestaurantInsidePage = useCallback(() => {
     closeMenu();
-    history.push("/restaurant/type/inside");
+    history.push("/restaurant/in-campus");
   }, [history]);
   const goRestaurantGeneralPage = useCallback(() => {
     closeMenu();
