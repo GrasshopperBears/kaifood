@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getGeneralRestaurant from "@services/restaurant/get-general-restaurant";
 import RestaurantCard from "@components/common/restaurant/RestaurantCard";
+import MainTitle from "@components/common/MainTitle";
 import { Tabs, message } from "antd";
 import styled from "styled-components";
 
@@ -24,18 +25,21 @@ const RestaurantGeneralPage = () => {
   };
 
   return (
-    <TabsStyled>
-      <TabPane tab="매점" key="1">
-        {restaurants.store.map((el) => (
-          <RestaurantCard info={el} key={el._id} />
-        ))}
-      </TabPane>
-      <TabPane tab="카페/패스트푸드" key="2">
-        {restaurants.cafe.map((el) => (
-          <RestaurantCard info={el} key={el._id} />
-        ))}
-      </TabPane>
-    </TabsStyled>
+    <>
+      <MainTitle>교내 매점 및 카페</MainTitle>
+      <TabsStyled>
+        <TabPane tab="매점" key="1">
+          {restaurants.store.map((el) => (
+            <RestaurantCard info={el} key={el._id} />
+          ))}
+        </TabPane>
+        <TabPane tab="카페/패스트푸드" key="2">
+          {restaurants.cafe.map((el) => (
+            <RestaurantCard info={el} key={el._id} />
+          ))}
+        </TabPane>
+      </TabsStyled>
+    </>
   );
 };
 
