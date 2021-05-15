@@ -75,6 +75,9 @@ const CardStyled = styled(Card)`
     padding-bottom: 15px;
     background-color: rgba(192, 189, 165, 0.4);
     border-radius: 0 0 ${(props) => props.theme.radius.md} ${(props) => props.theme.radius.md};
+    * {
+      font-family: "S-CoreDream-3Light";
+    }
   }
 `;
 
@@ -96,8 +99,8 @@ const MenuDiv = styled.div`
   align-items: center;
   border: 2px solid gray;
   border-radius: 5px;
-  width: 80px;
-  height: 70px;
+  width: 70px;
+  height: 60px;
   font-size: 0.7rem;
 `;
 
