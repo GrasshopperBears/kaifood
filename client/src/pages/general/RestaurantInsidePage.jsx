@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getRestaurantInCampus from "@services/restaurant/get-restaurant-in-campus";
-import RestaurantCard from "@components/common/restaurant/RestaurantCard";
+import RestaurantCard from "@components/restaurant/RestaurantCard";
 import MainTitle from "@components/common/MainTitle";
 import { message } from "antd";
 

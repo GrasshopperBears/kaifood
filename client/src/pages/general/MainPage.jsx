@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getTodayMenu from "@services/menu/get-today-menu";
+import getTodayMenu from "@services/menu-in-campus/get-today-menu";
 import MainMenuCard from "@components/user-main/MainMenuCard";
 import MainTitle from "@components/common/MainTitle";
 
