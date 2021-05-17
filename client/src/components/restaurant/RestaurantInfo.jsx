@@ -40,6 +40,7 @@ const RestaurantInfo = ({ time, address, phoneNumber }) => {
 const InfoStyled = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding-top: 2px;
   padding-bottom: 2px;
   svg {

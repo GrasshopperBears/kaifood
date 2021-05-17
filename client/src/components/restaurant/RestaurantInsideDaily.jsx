@@ -13,6 +13,8 @@ const checkIsToday = (date) => {
 const RestaurantInsideDaily = ({ date, menus }) => {
   const [today] = useState(new Date());
   const [isToday, setIsToday] = useState(false);
+  const dateInstance = new Date(date);
+  const dateString = `${dateInstance.getMonth() + 1}월 ${dateInstance.getDate()}일`;
 
   useEffect(() => {
     if (checkIsToday(date)) setIsToday(true);
@@ -22,7 +24,7 @@ const RestaurantInsideDaily = ({ date, menus }) => {
     (!isToday || (isToday && today.getHours() <= 20)) && (
       <>
         <Divider orientation="left">
-          {isToday ? `오늘 (${date}, ${day[today.getDay()]}요일)` : `${date}, ${day[today.getDay()]}요일`}
+          {isToday ? `오늘 (${dateString}, ${day[today.getDay()]}요일)` : `${dateString}, ${day[today.getDay()]}요일`}
         </Divider>
         <ListStyled
           bordered
@@ -31,7 +33,7 @@ const RestaurantInsideDaily = ({ date, menus }) => {
             if (isToday && getStartMealIdx(today) > idx) return <></>;
             return (
               <List.Item>
-                <List.Item.Meta avatar={mealName[idx]} description={menu} />
+                <List.Item.Meta avatar={mealName[idx]} description={menu.join(" / ") || "메뉴가 없어요..."} />
               </List.Item>
             );
           }}
