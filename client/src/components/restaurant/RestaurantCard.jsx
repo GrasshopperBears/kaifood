@@ -1,25 +1,14 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { Card, Modal } from "antd";
+import RestaurantInfo from "./RestaurantInfo";
+import { Card } from "antd";
 import styled from "styled-components";
-import { MdRestaurantMenu, MdLocationOn, MdAccessTime, MdPhone } from "react-icons/md";
+import { MdRestaurantMenu } from "react-icons/md";
 
 const RestaurantCard = ({ info, url }) => {
   const history = useHistory();
   const { name, phoneNumber, address, time } = info;
 
-  const phoneCallHandler = useCallback(
-    (e) => {
-      e.stopPropagation();
-      Modal.confirm({
-        title: "매장에 전화하시겠습니까?",
-        onOk: () => {
-          document.location.href = `tel:${phoneNumber}`;
-        },
-      });
-    },
-    [phoneNumber]
-  );
   const clickHandler = useCallback(() => {
     if (url) history.push(url);
   }, [history, url]);
@@ -27,20 +16,7 @@ const RestaurantCard = ({ info, url }) => {
   return (
     <CardStyled title={name} onClick={clickHandler}>
       <div style={{ width: "100%" }}>
-        <InfoStyled>
-          <IconWrapper>
-            <MdAccessTime />
-          </IconWrapper>
-          {time}
-        </InfoStyled>
-        <InfoStyled>
-          <MdLocationOn />
-          {address}
-        </InfoStyled>
-        <InfoStyled onClick={phoneCallHandler}>
-          <MdPhone />
-          {phoneNumber}
-        </InfoStyled>
+        <RestaurantInfo time={time} address={address} phoneNumber={phoneNumber} />
       </div>
       {url && (
         <MenuDiv>
@@ -81,17 +57,6 @@ const CardStyled = styled(Card)`
   }
 `;
 
-const InfoStyled = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  svg {
-    margin: 5px 16px 5px 0;
-    vertical-align: center;
-  }
-`;
-
 const MenuDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,10 +67,6 @@ const MenuDiv = styled.div`
   width: 70px;
   height: 60px;
   font-size: 0.7rem;
-`;
-
-const IconWrapper = styled.div`
-  width: 30px;
 `;
 
 export default RestaurantCard;
