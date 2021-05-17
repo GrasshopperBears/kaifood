@@ -44,7 +44,6 @@ const RestaurantInsideDetailPage = () => {
 };
 
 const RestaurantInfoWrapper = styled.div`
-  padding: 0 ${(props) => props.theme.padding.sidePadding};
   font-size: 0.8rem !important;
 `;
 

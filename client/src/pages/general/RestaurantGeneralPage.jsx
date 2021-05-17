@@ -3,7 +3,6 @@ import getGeneralRestaurant from "@services/restaurant/get-general-restaurant";
 import RestaurantCard from "@components/restaurant/RestaurantCard";
 import MainTitle from "@components/common/MainTitle";
 import { Tabs, message } from "antd";
-import styled from "styled-components";
 
 const { TabPane } = Tabs;
 
@@ -27,7 +26,7 @@ const RestaurantGeneralPage = () => {
   return (
     <>
       <MainTitle>교내 매점 및 카페</MainTitle>
-      <TabsStyled>
+      <Tabs>
         <TabPane tab="매점" key="1">
           {restaurants.store.map((el) => (
             <RestaurantCard info={el} key={el._id} />
@@ -38,15 +37,9 @@ const RestaurantGeneralPage = () => {
             <RestaurantCard info={el} key={el._id} />
           ))}
         </TabPane>
-      </TabsStyled>
+      </Tabs>
     </>
   );
 };
-
-const TabsStyled = styled(Tabs)`
-  .ant-tabs-nav-wrap {
-    margin: 0 ${(props) => props.theme.padding.sidePadding};
-  }
-`;
 
 export default RestaurantGeneralPage;

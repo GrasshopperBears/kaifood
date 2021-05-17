@@ -9,7 +9,6 @@ const MainTitle = ({ children }) => {
 };
 
 const TitleStyled = styled(Title)`
-  margin: 15px ${(props) => props.theme.padding.sidePadding};
   font-family: "S-CoreDream-8Heavy";
 `;
 

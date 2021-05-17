@@ -29,7 +29,7 @@ const RestaurantCard = ({ info, url }) => {
 };
 
 const CardStyled = styled(Card)`
-  margin: 5px 20px 10px 20px;
+  margin: 5px 0 10px 0;
   word-break: keep-all;
 
   .ant-card-head {

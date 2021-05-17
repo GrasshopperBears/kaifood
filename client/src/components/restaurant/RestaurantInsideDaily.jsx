@@ -44,7 +44,6 @@ const RestaurantInsideDaily = ({ date, menus }) => {
 };
 
 const ListStyled = styled(List)`
-  margin: 0 20px;
   .ant-list-item-meta-avatar {
     font-weight: bold;
   }
