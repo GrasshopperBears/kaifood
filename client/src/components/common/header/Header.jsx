@@ -86,7 +86,7 @@ const HeaderStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 13px ${(props) => props.theme.padding.sidePadding};
+  padding: 13px ${(props) => props.theme.padding.headerSidePadding};
   border-bottom: 1px solid ${(props) => props.theme.color.borderGray};
 `;
 

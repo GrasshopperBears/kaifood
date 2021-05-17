@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getGeneralRestaurant from "@services/restaurant/get-general-restaurant";
-import RestaurantCard from "@components/common/restaurant/RestaurantCard";
+import RestaurantCard from "@components/restaurant/RestaurantCard";
 import MainTitle from "@components/common/MainTitle";
 import { Tabs, message } from "antd";
 import styled from "styled-components";
@@ -45,7 +45,7 @@ const RestaurantGeneralPage = () => {
 
 const TabsStyled = styled(Tabs)`
   .ant-tabs-nav-wrap {
-    margin: 0 25px;
+    margin: 0 ${(props) => props.theme.padding.sidePadding};
   }
 `;
 

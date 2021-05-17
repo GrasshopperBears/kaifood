@@ -50,7 +50,7 @@ const PopoverContent = ({ info }) => {
 };
 
 const CardStyled = styled(Card)`
-  margin: 15px 25px;
+  margin: 15px ${(props) => props.theme.padding.sidePadding};
   word-break: keep-all;
 
   .ant-card-head {

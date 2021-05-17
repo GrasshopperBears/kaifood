@@ -19,7 +19,8 @@ const theme = {
     md: "6px",
   },
   padding: {
-    sidePadding: "30px",
+    sidePadding: "25px",
+    headerSidePadding: "30px",
   },
 };
 
