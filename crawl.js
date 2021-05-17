@@ -69,6 +69,7 @@ const main = async () => {
   }
   try {
     await axios.post("http://localhost:4000/api/menu-in-campus", { crawlData });
+    console.log("Menu updated successfully");
   } catch (e) {
     console.error(e);
     repeatCount++;
