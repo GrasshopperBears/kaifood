@@ -17,8 +17,8 @@ const RestaurantInsideDetailPage = () => {
     setRestaurantInfo(result[0].restaurant);
     setMenus(
       result.reduce((acc, el) => {
-        const { date, menuList } = el;
-        acc.push({ date, menuList });
+        const { date, menuList, _id } = el;
+        acc.push({ date, menuList, _id });
         return acc;
       }, [])
     );
