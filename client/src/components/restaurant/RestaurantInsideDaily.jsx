@@ -33,7 +33,7 @@ const RestaurantInsideDaily = ({ date, menus }) => {
             if (isToday && getStartMealIdx(today) > idx) return <></>;
             return (
               <List.Item>
-                <List.Item.Meta avatar={mealName[idx]} description={menu.join(" / ") || "메뉴가 없어요..."} />
+                <List.Item.Meta avatar={mealName[idx]} description={menu.join(" / ") || "메뉴 정보가 없어요..."} />
               </List.Item>
             );
           }}

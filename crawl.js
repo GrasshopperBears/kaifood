@@ -36,7 +36,8 @@ const crawlEachRestaurantOneDay = async (restaurant, date) => {
     const meals = $("#tab_item_1 tbody").find("td");
     const parseMeals = {};
     meals.each(function (idx, _) {
-      const text = $(this).children("ul").text();
+      const element = $(this).children("ul").length ? $(this).children("ul") : $(this);
+      const text = element.text();
       text.replace(/\t/g, "");
       const menus = text
         .replace(/\t/g, "")
