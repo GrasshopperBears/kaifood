@@ -1,5 +1,5 @@
 import React from "react";
-import RestaurantInsideDetail from "@components/common/restaurant/RestaurantInsideDaily";
+import RestaurantInsideDetail from "@components/restaurant/RestaurantInsideDaily";
 
 export default {
   title: "Restaurant/Restaurant Inside Detail",

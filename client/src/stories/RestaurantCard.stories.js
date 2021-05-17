@@ -1,5 +1,5 @@
 import React from "react";
-import RestaurantCard from "@components/common/restaurant/RestaurantCard";
+import RestaurantCard from "@components/restaurant/RestaurantCard";
 
 export default {
   title: "Restaurant/Info Card",
