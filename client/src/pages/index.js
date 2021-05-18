@@ -9,6 +9,7 @@ import RestaurantsByTypePage from "./general/RestaurantsByTypePage";
 import AddRestaurantPage from "./owner/AddRestaurantPage";
 import EditRestaurantPage from "./owner/EditRestaurantPage";
 import { default as OwnerMainPage } from "./owner/MainPage";
+import OwnerRestaurantDetailPage from "./owner/OwnerRestaurantDetailPage";
 import ReservationTodayPage from "./owner/ReservationTodayPage";
 import ReservationTotalPage from "./owner/ReservationTotalPage";
 import NotFoundPage from "./NotFoundPage";
@@ -24,6 +25,7 @@ const Pages = {
   RestaurantsByTypePage,
   AddRestaurantPage,
   EditRestaurantPage,
+  OwnerRestaurantDetailPage,
   OwnerMainPage,
   ReservationTodayPage,
   ReservationTotalPage,
