@@ -23,7 +23,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: execute deploy
         uses: appleboy/ssh-action@master
-        with: |
+        with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.NAME }}
           password: ${{ secrets.PASSWORD }}
