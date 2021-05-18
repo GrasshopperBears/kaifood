@@ -4,7 +4,7 @@ const types = ["restarant-in", "restarant-in-others", "cafe-in", "store-in", "re
 
 const restaurantSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  owner: { type: String, ref: "User" },
   phoneNumber: String,
   address: String,
   code: String,

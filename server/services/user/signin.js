@@ -1,10 +1,13 @@
 import User from "../../models/user";
+import Restaurants from "../../models/restaurant";
 
 const signin = async (req, res) => {
   try {
     const { uid } = req.body;
     const { userType } = await User.findOne({ uid });
-    res.json({ success: true, isOwner: userType.includes("owner") });
+    const isOwner = userType.includes("owner");
+    const restaurants = isOwner ? await Restaurants.find({ owner: uid }, ["name"]) : [];
+    res.json({ success: true, isOwner, restaurants });
   } catch (e) {
     console.error(e);
     res.json({ success: false });
