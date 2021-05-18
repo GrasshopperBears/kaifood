@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import UserMenu from "./UserMenu";
 import HeaderDrawer from "./HeaderDrawer";
 import { userCheckLogin, userLogin } from "@actions/user";
+import signin from "@services/auth/signin";
 import firebase from "app-firebase";
 import styled from "styled-components";
 import { Button, Popover } from "antd";
@@ -17,14 +18,16 @@ const Header = () => {
   const { initialized } = useSelector((state) => state.userTracker);
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
       if (!initialized) {
-        if (user) dispatch(userLogin());
-        else dispatch(userCheckLogin());
+        if (!user) return dispatch(userCheckLogin());
+        const result = await signin(user.uid);
+        if (!result.success) return dispatch(userCheckLogin());
+        dispatch(userLogin(result.isOwner));
       }
     });
     return unsubscribe;
-  }, [initialized]);
+  }, [initialized, dispatch]);
 
   const openMenu = useCallback(() => {
     setMenuVisible(true);
