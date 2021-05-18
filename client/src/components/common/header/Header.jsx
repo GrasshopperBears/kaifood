@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import UserMenu from "./UserMenu";
 import HeaderDrawer from "./HeaderDrawer";
 import { userCheckLogin, userLogin } from "@actions/user";
+import { initOwnerRestaurant } from "@actions/owner-restaurant";
 import signin from "@services/auth/signin";
 import firebase from "app-firebase";
 import styled from "styled-components";
@@ -24,6 +25,7 @@ const Header = () => {
         const result = await signin(user.uid);
         if (!result.success) return dispatch(userCheckLogin());
         dispatch(userLogin(result.isOwner));
+        if (result.isOwner) dispatch(initOwnerRestaurant(result.restaurants));
       }
     });
     return unsubscribe;
