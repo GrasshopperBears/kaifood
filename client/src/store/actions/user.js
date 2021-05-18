@@ -8,9 +8,10 @@ export const userCheckLogin = () => {
   };
 };
 
-export const userLogin = () => {
+export const userLogin = (isOwner) => {
   return {
     type: USER_LOGIN,
+    payload: { isOwner },
   };
 };
 
