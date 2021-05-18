@@ -6,8 +6,6 @@ import RestaurantGeneralPage from "./general/RestaurantGeneralPage";
 import RestaurantInsidePage from "./general/RestaurantInsidePage";
 import RestaurantOutsidePage from "./general/RestaurantOutsidePage";
 import RestaurantsByTypePage from "./general/RestaurantsByTypePage";
-import SigninPage from "./general/SigninPage";
-import SignupPage from "./general/SignupPage";
 import AddRestaurantPage from "./owner/AddRestaurantPage";
 import EditRestaurantPage from "./owner/EditRestaurantPage";
 import { default as OwnerMainPage } from "./owner/MainPage";
@@ -24,8 +22,6 @@ const Pages = {
   RestaurantInsidePage,
   RestaurantOutsidePage,
   RestaurantsByTypePage,
-  SigninPage,
-  SignupPage,
   AddRestaurantPage,
   EditRestaurantPage,
   OwnerMainPage,
