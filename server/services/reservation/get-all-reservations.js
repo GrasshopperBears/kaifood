@@ -1,4 +1,4 @@
-import Reservation from "../../models/Reservation";
+import Reservation from "../../models/reservation";
 
 const getAllReservations = async (req, res) => {
   const uid = req.body.uid;
