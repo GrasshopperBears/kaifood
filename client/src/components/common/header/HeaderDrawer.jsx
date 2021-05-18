@@ -12,6 +12,13 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
   const { initialized, restaurants } = useSelector((state) => state.ownerRestaurant);
   const history = useHistory();
 
+  const clickMyRestaurantHandler = useCallback(
+    (id) => {
+      closeMenu();
+      history.push(`/owner/detail/${id}`);
+    },
+    [history]
+  );
   const goAddRestaurantPage = useCallback(() => {
     closeMenu();
     history.push("/owner/add");
@@ -34,7 +41,16 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
       {pathname.startsWith("/owner") ? (
         <>
           {initialized ? (
-            restaurants.map((el) => <HeaderDrawerEach onClick={() => history.push(`/owner/detail/${el._id}`)}>{el.name}</HeaderDrawerEach>)
+            restaurants.map((el) => (
+              <HeaderDrawerEach
+                key={el._id}
+                onClick={() => {
+                  clickMyRestaurantHandler(el._id);
+                }}
+              >
+                {el.name}
+              </HeaderDrawerEach>
+            ))
           ) : (
             <Spin />
           )}
