@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT, USER_CHECK_LOGIN } from "@actions/user";
+import { USER_LOGIN, USER_LOGOUT, USER_SET_OWNER, USER_CHECK_LOGIN } from "@actions/user";
 
 const userTrackerInitialState = {
   initialized: false,
@@ -13,6 +13,8 @@ const userTracker = (state = userTrackerInitialState, action) => {
       return { ...state, initialized: true };
     case USER_LOGIN:
       return { authorized: true, initialized: true, isOwner: payload.isOwner };
+    case USER_SET_OWNER:
+      return { ...state, isOwner: true };
     case USER_LOGOUT:
       return { ...state, authorized: false, initialized: true };
     default:
