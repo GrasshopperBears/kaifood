@@ -21,8 +21,8 @@ const InfoRow = ({ label, value, onChange, notAllowEmpty = false, max = 0 }) => 
 
   return (
     <Row>
-      <Col span={8}>{label}</Col>
-      <Col span={16}>
+      <Col span={7}>{label}</Col>
+      <Col span={17}>
         <ParagraphStyled editable={{ icon: <RiEdit2Fill />, onChange: changeHandler, maxLength: max }}>{value}</ParagraphStyled>
       </Col>
     </Row>

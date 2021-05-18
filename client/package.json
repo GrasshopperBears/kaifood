@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.15.5",
+    "antd-img-crop": "^3.14.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "firebase": "^8.6.0",
