@@ -14,6 +14,7 @@ const MenuSingle = ({ content, action }) => {
 const AuthorizedUserMenus = ({ closeUserMenu }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { isOwner } = useSelector((state) => state.userTracker);
 
   const goReservationPage = useCallback(() => {
     closeUserMenu();
@@ -33,6 +34,7 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
   return (
     <>
       <MenuSingle content="예약 내역" action={goReservationPage} />
+      {isOwner && <MenuSingle content="식당 관리하기" action={goReservationPage} />}
       <MenuSingle content="마이페이지" action={goMypage} />
       <MenuSingle content="로그아웃" action={logoutHandler} />
     </>

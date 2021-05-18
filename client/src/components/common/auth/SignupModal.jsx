@@ -22,7 +22,7 @@ const SignupModal = ({ visible, hideSignupModal }) => {
         message.destroy();
         form.resetFields();
         hideSignupModal();
-        dispatch(userLogin());
+        dispatch(userLogin(false));
       } else {
         message.destroy();
         message.error(serverResult.message);
