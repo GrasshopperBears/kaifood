@@ -34,7 +34,7 @@ const OwnerRestaurantDetailPage = () => {
       <MainTitle>{restaurantInfo.name || ""}</MainTitle>
       <Tabs defaultActiveKey="1">
         <TabPane tab="식당 정보" key="1">
-          <RestaurantInfo />
+          <RestaurantInfo info={restaurantInfo} onUpdate={setRestaurantInfo} />
         </TabPane>
         <TabPane tab="메뉴 정보" key="2">
           <MenuInfo />
