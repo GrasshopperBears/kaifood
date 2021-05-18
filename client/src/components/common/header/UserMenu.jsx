@@ -24,6 +24,10 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
     closeUserMenu();
     history.push("/mypage");
   }, [history]);
+  const goOwnerPage = useCallback(() => {
+    closeUserMenu();
+    history.push("/owner");
+  }, [history]);
   const logoutHandler = async () => {
     closeUserMenu();
     await firebase.auth().signOut();
@@ -34,7 +38,7 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
   return (
     <>
       <MenuSingle content="예약 내역" action={goReservationPage} />
-      {isOwner && <MenuSingle content="식당 관리하기" action={goReservationPage} />}
+      {isOwner && <MenuSingle content="식당 관리하기" action={goOwnerPage} />}
       <MenuSingle content="마이페이지" action={goMypage} />
       <MenuSingle content="로그아웃" action={logoutHandler} />
     </>
