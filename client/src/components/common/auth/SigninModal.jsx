@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import firebase from "app-firebase";
 import { userLogin } from "@actions/user";
+import { initOwnerRestaurant } from "@actions/owner-restaurant";
 import signin from "@services/auth/signin";
 import { Modal, Form, Input, message } from "antd";
 import styled from "styled-components";
@@ -18,8 +19,10 @@ const SigninModal = ({ visible, hideSigninModal }) => {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       const result = await signin(firebase.auth().currentUser.uid);
       message.destroy();
-      if (result.success) dispatch(userLogin(result.isOwner));
-      else message.error(result.errorMessage);
+      if (result.success) {
+        dispatch(userLogin(result.isOwner));
+        dispatch(initOwnerRestaurant(result.restaurants));
+      } else message.error(result.errorMessage);
     } catch (e) {
       message.destroy();
       firebaseSigninErrorHandler(e);

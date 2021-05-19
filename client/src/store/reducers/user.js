@@ -16,7 +16,7 @@ const userTracker = (state = userTrackerInitialState, action) => {
     case USER_SET_OWNER:
       return { ...state, isOwner: true };
     case USER_LOGOUT:
-      return { ...state, authorized: false, initialized: true };
+      return { ...userTrackerInitialState, initialized: true };
     default:
       return state;
   }

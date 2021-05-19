@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import firebase from "app-firebase";
 import { userLogout } from "@actions/user";
+import { clearOwnerRestaurant } from "@actions/owner-restaurant";
 import SigninModal from "@components/common/auth/SigninModal";
 import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
@@ -32,7 +33,8 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
     closeUserMenu();
     await firebase.auth().signOut();
     dispatch(userLogout());
-    // 인증 필요한 페이지는 메인으로 리디렉션
+    dispatch(clearOwnerRestaurant());
+    history.push("/");
   };
 
   return (

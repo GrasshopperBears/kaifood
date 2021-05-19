@@ -4,7 +4,7 @@ import { Modal, Form, Input, message, Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import styled from "styled-components";
 
-const AddMenuModal = ({ visible, hideModal }) => {
+const AddMenuModal = ({ visible, hideModal, rid, addState }) => {
   const [form] = Form.useForm();
   const [img, setImg] = useState(undefined);
 
@@ -15,12 +15,14 @@ const AddMenuModal = ({ visible, hideModal }) => {
       .then(async ({ name, price, description }) => {
         const formData = new FormData();
         formData.append("image", img);
-        formData.append("data", JSON.stringify({ name, price, description }));
+        formData.append("data", JSON.stringify({ name, price, description, restaurant: rid }));
         const result = await addMenu(formData);
         message.destroy();
         if (result) {
+          form.resetFields();
           hideModal();
           setImg(undefined);
+          addState(result);
         } else message.error("메뉴 추가 중 오류가 발생했습니다");
       })
       .catch((e) => {
