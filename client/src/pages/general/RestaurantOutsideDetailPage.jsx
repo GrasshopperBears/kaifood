@@ -30,6 +30,7 @@ const RestaurantOutsideDetailPage = () => {
       <RestaurantInfoWrapper>
         <RestaurantInfo time={restaurantInfo.time} address={restaurantInfo.address} phoneNumber={restaurantInfo.phoneNumber} />
       </RestaurantInfoWrapper>
+      <Description>{restaurantInfo.description}</Description>
       {menus.length > 0 ? <Divider orientation="left">메뉴 목록</Divider> : <Divider orientation="center">메뉴 없음</Divider>}
       {menus.map((el) => (
         <RestaurantOutCampusMenu key={el._id} info={el} />
@@ -45,6 +46,12 @@ const RestaurantInfoWrapper = styled.div`
   padding: 10px 20px;
   border: 1px solid rgba(50, 50, 50, 0.2);
   border-radius: 6px;
+`;
+
+const Description = styled.div`
+  margin-top: 20px;
+  color: #777777;
+  font-size: 0.8rem;
 `;
 
 export default RestaurantOutsideDetailPage;
