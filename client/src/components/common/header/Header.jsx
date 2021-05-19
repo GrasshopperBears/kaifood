@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { isBrowser } from "react-device-detect";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import UserMenu from "./UserMenu";
@@ -49,7 +50,7 @@ const Header = () => {
 
   return (
     <>
-      <HeaderStyled>
+      <HeaderStyled isBrowser={isBrowser}>
         <MenuButton onClick={openMenu} icon={<MenuOutlined />} />
         <Title onClick={goMainPage}>밥상</Title>
         <Popover
@@ -91,7 +92,7 @@ const HeaderStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 13px ${(props) => props.theme.padding.headerSidePadding};
+  padding: 13px ${(props) => (props.isBrowser ? props.theme.padding.browserSidePadding : props.theme.padding.mobileSidePadding)};
   border-bottom: 1px solid ${(props) => props.theme.color.borderGray};
 `;
 
