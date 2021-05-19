@@ -32,7 +32,7 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
     closeUserMenu();
     await firebase.auth().signOut();
     dispatch(userLogout());
-    // 인증 필요한 페이지는 메인으로 리디렉션
+    history.push("/");
   };
 
   return (
