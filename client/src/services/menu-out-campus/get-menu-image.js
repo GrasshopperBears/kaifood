@@ -8,7 +8,7 @@ const getMenuImage = async (imgUrl) => {
     return image;
   } catch (e) {
     console.error(e);
-    return [];
+    return false;
   }
 };
 

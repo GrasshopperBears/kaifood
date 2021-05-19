@@ -1,5 +1,6 @@
-import React from "react";
-import { Card, Image, Typography } from "antd";
+import React, { useState, useEffect } from "react";
+import getMenuImage from "@services/menu-out-campus/get-menu-image";
+import { Card, Image, Typography, Spin } from "antd";
 import styled from "styled-components";
 
 const { Meta } = Card;
@@ -7,14 +8,26 @@ const { Title, Text } = Typography;
 
 const RestaurantOutCampusMenu = ({ info }) => {
   const { name, price, description, imgUrl } = info;
+  const [image, setImage] = useState(undefined);
+
+  const getImage = async () => {
+    if (!imgUrl) return setImage(process.env.PUBLIC_URL + "/empty-menu-image.png");
+    const result = await getMenuImage(imgUrl);
+    if (result) setImage(result);
+    else setImage(process.env.PUBLIC_URL + "/empty-menu-image.png");
+  };
+
+  useEffect(() => {
+    getImage();
+  }, []);
 
   return (
-    <CardStyled hoverable>
-      <Meta avatar={<Image width={80} height={80} src={imgUrl} alt={`Image of ${name}`} />} />
+    <CardStyled>
+      <Meta avatar={image ? <Image width={80} height={80} src={image} alt={`Image of ${name}`} /> : <Spin size="small" />} />
       <div style={{ marginLeft: "20px" }}>
         <TitleStyled>
           <Title level={4}>{name}</Title>
-          <Price level={5}>/{price.toLocaleString()}원</Price>
+          <Price level={5}>/ {price.toLocaleString()}원</Price>
         </TitleStyled>
         <Text type="secondary">{description}</Text>
       </div>
