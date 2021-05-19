@@ -16,9 +16,9 @@ const MainRouter = () => {
           <Route exact path="/reservation" component={Pages.UserReservationPage} />
           <Route exact path="/restaurant/general" component={Pages.RestaurantGeneralPage} />
           <Route exact path="/restaurant/in-campus" component={Pages.RestaurantInsidePage} />
+          <Route exact path="/restaurant/out-campus" component={Pages.RestaurantOutsidePage} />
           <Route path="/restaurant/in-campus/:code" component={Pages.RestaurantInsideDetailPage} />
-          <Route path="/restaurant/outside/:id" component={Pages.RestaurantOutsidePage} />
-          <Route path="/restaurant/type/:type" component={Pages.RestaurantsByTypePage} />
+          <Route path="/restaurant/outside/:id" component={Pages.RestaurantOutsideDetailPage} />
           <OwnerRouter exact path="/owner" component={Pages.OwnerMainPage} />
           <OwnerRouter exact path="/owner/detail/:id" component={Pages.OwnerRestaurantDetailPage} />
           <OwnerRouter exact path="/owner/add" component={Pages.AddRestaurantPage} />

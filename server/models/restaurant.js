@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const types = ["restarant-in", "restarant-in-others", "cafe-in", "store-in", "restaurant-out", "others"];
+const types = ["restaurant-in", "restaurant-in-others", "cafe-in", "store-in", "restaurant-out", "others"];
 
 const restaurantSchema = new mongoose.Schema({
   name: { type: String, required: true },

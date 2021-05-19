@@ -4,6 +4,7 @@ import MainTitle from "@components/common/MainTitle";
 import RestaurantInfo from "@components/restaurant/RestaurantInfo";
 import RestaurantInsideDaily from "@components/restaurant/RestaurantInsideDaily";
 import getMenuOfRestaurant from "@services/menu-in-campus/get-menu-of-restaurant";
+import { Spin } from "antd";
 import styled from "styled-components";
 
 const RestaurantInsideDetailPage = () => {
@@ -39,7 +40,7 @@ const RestaurantInsideDetailPage = () => {
       ))}
     </>
   ) : (
-    <></>
+    <Spin />
   );
 };
 

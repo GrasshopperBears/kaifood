@@ -5,10 +5,10 @@ import RestaurantInsideDetailPage from "./general/RestaurantInsideDetailPage";
 import RestaurantGeneralPage from "./general/RestaurantGeneralPage";
 import RestaurantInsidePage from "./general/RestaurantInsidePage";
 import RestaurantOutsidePage from "./general/RestaurantOutsidePage";
-import RestaurantsByTypePage from "./general/RestaurantsByTypePage";
 import AddRestaurantPage from "./owner/AddRestaurantPage";
 import EditRestaurantPage from "./owner/EditRestaurantPage";
 import { default as OwnerMainPage } from "./owner/MainPage";
+import RestaurantOutsideDetailPage from "./general/RestaurantOutsideDetailPage";
 import OwnerRestaurantDetailPage from "./owner/OwnerRestaurantDetailPage";
 import ReservationTodayPage from "./owner/ReservationTodayPage";
 import ReservationTotalPage from "./owner/ReservationTotalPage";
@@ -22,11 +22,11 @@ const Pages = {
   RestaurantInsideDetailPage,
   RestaurantInsidePage,
   RestaurantOutsidePage,
-  RestaurantsByTypePage,
   AddRestaurantPage,
   EditRestaurantPage,
   OwnerRestaurantDetailPage,
   OwnerMainPage,
+  RestaurantOutsideDetailPage,
   ReservationTodayPage,
   ReservationTotalPage,
   NotFoundPage,
