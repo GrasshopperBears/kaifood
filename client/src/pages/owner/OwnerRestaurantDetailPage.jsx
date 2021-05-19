@@ -37,7 +37,7 @@ const OwnerRestaurantDetailPage = () => {
           <RestaurantInfo info={restaurantInfo} onUpdate={setRestaurantInfo} />
         </TabPane>
         <TabPane tab="메뉴 정보" key="2">
-          <MenuInfo />
+          <MenuInfo info={restaurantInfo} />
         </TabPane>
         <TabPane tab="예약 현황" key="3">
           <ReservationInfo />
