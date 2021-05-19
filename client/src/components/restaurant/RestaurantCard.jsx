@@ -18,7 +18,7 @@ const RestaurantCard = ({ info, url }) => {
       <div style={{ width: "100%" }}>
         <RestaurantInfo time={time} address={address} phoneNumber={phoneNumber} />
       </div>
-      {info.restaurantType === "restarant-in" && (
+      {info.restaurantType === "restaurant-in" && (
         <MenuDiv>
           <MdRestaurantMenu size="25" />
           <div>메뉴</div>

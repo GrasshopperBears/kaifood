@@ -4,7 +4,7 @@
     "code": "north",
     "phoneNumber": "042-350-2060",
     "address": "학생식당 (N11)",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "조식 : 08:00 ~ 09:30 // 중식 : 11:30분 ~ 13:30 // 석식 : 17:30 ~ 19:00",
     "provideReservation": false,
     "approved": true
@@ -14,7 +14,7 @@
     "code": "west",
     "phoneNumber": "042-350-2046",
     "address": "서측 학생회관 (W2)",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "조식 : 08:00 ~ 9:30 // 중식 : 11:30 ~ 14:00 // 석식 : 17:30 ~ 19:00",
     "provideReservation": false,
     "approved": true
@@ -24,7 +24,7 @@
     "code": "east",
     "phoneNumber": "042-350-2043",
     "address": "교직원회관 (E5) 1층",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "조식 08:00 ~ 10:00 // 중식 11:30 ~ 14:00 // 라면 14:00 ~ 15:30 // 석식 17:30~19:00 (코로나로 인해 단축 운영중)",
     "provideReservation": false,
     "approved": true
@@ -34,7 +34,7 @@
     "code": "eastFacaulty",
     "phoneNumber": "042-350-2043",
     "address": "교직원회관 (E5) 2층",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "중식 11:30 ~ 13:30 // 석식 17:30 ~ 19:00",
     "provideReservation": false,
     "approved": true
@@ -44,7 +44,7 @@
     "code": "facaultyHall",
     "phoneNumber": "042-350-2039",
     "address": "교수회관 (N6)",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "중식 : 11:20 ~ 1:30 // 석식 : 17:30~18:30",
     "provideReservation": false,
     "approved": true
@@ -54,7 +54,7 @@
     "code": "moonji",
     "phoneNumber": "042-350-6727",
     "address": "문지캠퍼스 식당동",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "조식 : 07:30~9:00 // 중식(라일락,스낵코너) : 11:00 ~ 13:00 // 석식(마로니애) : 17:00~18:40(식당 마감시간 19시)",
     "provideReservation": false,
     "approved": true
@@ -64,7 +64,7 @@
     "code": "hwaAm",
     "phoneNumber": "042-351-1004",
     "address": "화암 기숙사",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "조식 : 07:30 ~ 9:00 // 중식 : 11:30 ~ 13:00 // 석식 : 17:30~18:40(식당 마감 시간 19시)",
     "provideReservation": false,
     "approved": true
@@ -74,7 +74,7 @@
     "code": "seoul",
     "phoneNumber": "02-958-3935",
     "address": "서울캠퍼스 복지후생관",
-    "restaurantType": "restarant-in",
+    "restaurantType": "restaurant-in",
     "time": "",
     "provideReservation": false,
     "approved": true
@@ -83,7 +83,7 @@
     "name": "카이마루 뚝배기",
     "phoneNumber": "042-350-0891",
     "address": "카이마루 (N11)",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 10:00~19:30(break time 14:30~16:00) / 토요일 10:00~18:30, 일요일 및 공휴일 휴무",
     "provideReservation": false,
     "approved": true
@@ -92,7 +92,7 @@
     "name": "휴김밥전문점",
     "phoneNumber": "042-350-0892",
     "address": "카이마루 (N11)",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 08:00~19:30 / 토요일 10:00~14:30 / 일요일 및 공휴일 휴무",
     "provideReservation": false,
     "approved": true
@@ -101,7 +101,7 @@
     "name": "오니기리와이규동",
     "phoneNumber": "042-350-0893",
     "address": "카이마루 (N11)",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 10:30~19:30 / break time 14:30~16:30 / 토요일 10:30~14:00 / 일요일 및 공휴일 휴무",
     "provideReservation": false,
     "approved": true
@@ -110,7 +110,7 @@
     "name": "캠토",
     "phoneNumber": "042-350-0872",
     "address": "서울캠퍼스 복지후생관",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 09:00~19:00 (break time 없음)",
     "provideReservation": false,
     "approved": true
@@ -119,7 +119,7 @@
     "name": "더큰도시락",
     "phoneNumber": "042-350-0875",
     "address": "서측 학생회관 2층",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 10:00~19:00 / 주말 및 공휴일 휴무",
     "provideReservation": false,
     "approved": true
@@ -128,7 +128,7 @@
     "name": "태울관 뚝배기",
     "phoneNumber": "042-350-0875",
     "address": "태울관(N13) 2층",
-    "restaurantType": "restarant-in-others",
+    "restaurantType": "restaurant-in-others",
     "time": "평일 일품 10:00~19:00 / 평일 야식 19:00~01:00 / 평일 자율배식 11:30~13:00 / 토요일 휴무 / 일요일 자율배식 11:30~13:00, 17:30~19:00",
     "provideReservation": false,
     "approved": true
