@@ -33,7 +33,7 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
   }, [history]);
   const goRestaurantOutsidePage = useCallback(() => {
     closeMenu();
-    history.push("/restaurant/type/outside");
+    history.push("/restaurant/out-campus");
   }, [history]);
 
   return (
