@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { isBrowser } from "react-device-detect";
 import { useHistory } from "react-router-dom";
 import { Card, Popover, Divider } from "antd";
 import styled from "styled-components";
@@ -12,7 +13,7 @@ const MainMenuCard = ({ menus, info }) => {
   };
 
   return (
-    <CardStyled title={info.name} onClick={clickHandler} bordered={false} extra={<InfoPopover info={info} />}>
+    <CardStyled title={info.name} onClick={clickHandler} bordered={false} extra={<InfoPopover info={info} />} hoverable={isBrowser}>
       {menus}
     </CardStyled>
   );
