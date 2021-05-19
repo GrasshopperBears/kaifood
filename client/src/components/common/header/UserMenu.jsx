@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import firebase from "app-firebase";
 import { userLogout } from "@actions/user";
+import { clearOwnerRestaurant } from "@actions/owner-restaurant";
 import SigninModal from "@components/common/auth/SigninModal";
 import SignupModal from "@components/common/auth/SignupModal";
 import styled from "styled-components";
@@ -32,6 +33,7 @@ const AuthorizedUserMenus = ({ closeUserMenu }) => {
     closeUserMenu();
     await firebase.auth().signOut();
     dispatch(userLogout());
+    dispatch(clearOwnerRestaurant());
     history.push("/");
   };
 

@@ -1,4 +1,4 @@
-import { OWNER_RESTAURANT_INIT, ADD_OWNER_RESTAURANT } from "@actions/owner-restaurant";
+import { OWNER_RESTAURANT_INIT, ADD_OWNER_RESTAURANT, CLEAR_OWNER_RESTAURANT } from "@actions/owner-restaurant";
 
 const ownerRestaurantInitialState = {
   initialized: false,
@@ -12,6 +12,8 @@ const ownerRestaurant = (state = ownerRestaurantInitialState, action) => {
       return { initialized: true, restaurants: payload.restaurants };
     case ADD_OWNER_RESTAURANT:
       return { ...state, restaurants: [...state.restaurants, payload.restaurant] };
+    case CLEAR_OWNER_RESTAURANT:
+      return ownerRestaurantInitialState;
     default:
       return state;
   }
