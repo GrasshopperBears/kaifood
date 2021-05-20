@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import MainTitle from "@components/common/MainTitle";
 import RestaurantInfo from "@components/restaurant/RestaurantInfo";
 import RestaurantOutCampusMenu from "@components/common/RestaurantOutCampusMenu";
 import getRestaurantInfo from "@services/restaurant/get-restaurant-info";
 import getRestaurantMenus from "@services/menu-out-campus/get-restaurant-menus";
-import { Spin, Divider } from "antd";
+import { Spin, Divider, Button, message } from "antd";
 import styled from "styled-components";
 
 const RestaurantOutsideDetailPage = () => {
   const { id } = useParams();
+  const history = useHistory();
   const [restaurantInfo, setRestaurantInfo] = useState(undefined);
   const [menus, setMenus] = useState([]);
+  const { initialized, authorized } = useSelector((state) => state.userTracker);
+
+  const startRervation = async () => {
+    if (!initialized || !authorized) return message.warn("로그인 후 진행해주세요");
+    history.push({ pathname: `/restaurant/outside/${id}/reservation`, state: { name: restaurantInfo.name } });
+  };
 
   const initRestaurant = async () => {
     const result = await getRestaurantInfo(id);
@@ -31,6 +39,11 @@ const RestaurantOutsideDetailPage = () => {
         <RestaurantInfo time={restaurantInfo.time} address={restaurantInfo.address} phoneNumber={restaurantInfo.phoneNumber} />
       </RestaurantInfoWrapper>
       <Description>{restaurantInfo.description}</Description>
+      {menus.length > 0 && restaurantInfo.provideReservation && (
+        <ReservationButton size="large" onClick={startRervation}>
+          예약하기
+        </ReservationButton>
+      )}
       {menus.length > 0 ? <Divider orientation="left">메뉴 목록</Divider> : <Divider orientation="center">메뉴 없음</Divider>}
       {menus.map((el) => (
         <RestaurantOutCampusMenu key={el._id} info={el} />
@@ -49,9 +62,13 @@ const RestaurantInfoWrapper = styled.div`
 `;
 
 const Description = styled.div`
-  margin-top: 20px;
+  margin: 15px 0;
   color: #777777;
   font-size: 0.8rem;
+`;
+
+const ReservationButton = styled(Button)`
+  width: 100%;
 `;
 
 export default RestaurantOutsideDetailPage;
