@@ -11,6 +11,7 @@ const restaurantSchema = new mongoose.Schema({
   restaurantType: { type: String, enum: types, required: true },
   time: { type: [{ type: String }] },
   provideReservation: { type: Boolean, default: false },
+  maxReservationNumber: { type: Number, default: 0 },
   approved: { type: Boolean, default: false },
   description: String,
 });

@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { isBrowser } from "react-device-detect";
 import { useHistory } from "react-router-dom";
 import RestaurantInfo from "./RestaurantInfo";
 import { Card } from "antd";
@@ -14,11 +15,15 @@ const RestaurantCard = ({ info, url }) => {
   }, [history, url]);
 
   return (
-    <CardStyled title={name} onClick={clickHandler}>
+    <CardStyled
+      title={name}
+      onClick={clickHandler}
+      hoverable={isBrowser && (info.restaurantType === "restaurant-in" || info.restaurantType === "restaurant-out")}
+    >
       <div style={{ width: "100%" }}>
         <RestaurantInfo time={time} address={address} phoneNumber={phoneNumber} />
       </div>
-      {info.restaurantType === "restaurant-in" && (
+      {(info.restaurantType === "restaurant-in" || info.restaurantType === "restaurant-out") && (
         <MenuDiv>
           <MdRestaurantMenu size="25" />
           <div>메뉴</div>
