@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import MainTitle from "@components/common/MainTitle";
 import addRestaurant from "@services/restaurant/add-restaurant";
 import { addOwnerRestaurant } from "@actions/owner-restaurant";
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Button, message, Radio, InputNumber } from "antd";
 
 const AddRestaurantPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [showReservationNumber, setShowReservationNumber] = useState(false);
 
   const submitHandler = async (values) => {
-    const result = await addRestaurant(values);
+    const result = await addRestaurant({ ...values, provideReservation: values.provideReservation === "true" });
     if (!result) return message.error("식당 추가 중 오류가 발생했습니다");
     dispatch(addOwnerRestaurant({ _id: result._id, name: result.name }));
     history.push(`/owner/detail/${result._id}`);
+  };
+
+  const changReservation = (e) => {
+    setShowReservationNumber(e.target.value === "true");
   };
 
   return (
@@ -39,6 +44,20 @@ const AddRestaurantPage = () => {
           ]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item label="예약 가능 여부" name="provideReservation" rules={[{ required: true, message: "예약 가능 여부를 선택해주세요" }]}>
+          <Radio.Group onChange={changReservation} buttonStyle="solid">
+            <Radio.Button value="true">가능</Radio.Button>
+            <Radio.Button value="false">불가능</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item
+          label="최대 예약 인원"
+          name="maxReservationNumber"
+          hidden={!showReservationNumber}
+          rules={[{ required: showReservationNumber, message: "최대 예약 인원을 입력해주세요" }]}
+        >
+          <InputNumber />
         </Form.Item>
         <Form.Item label="한 줄 소개" name="description" rules={[{ max: 50, message: "한 줄 소개는 최대 50자까지만 입력이 가능합니다" }]}>
           <Input.TextArea showCount />
