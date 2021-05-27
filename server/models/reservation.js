@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
 const reservationSchema = new mongoose.Schema({
   customer: { type: String, ref: "User" },
   restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
-  time: { type: Date, required: true },
+  datetime: { type: Date, required: true },
   pending: { type: Boolean, default: true },
   approved: { type: Boolean, default: false },
   peopleNumber: Number,
