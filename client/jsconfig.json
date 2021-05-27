@@ -10,6 +10,7 @@
       "@reducers/*": ["./src/store/reducers/*"],
       "@store/*": ["./src/store/*"],
       "@services/*": ["./src/services/*"],
+      "@utils/*": ["./src/utils/*"],
       "app-firebase": ["./src/firebase-config.js"]
     }
   }
