@@ -23,7 +23,6 @@ const MainRouter = () => {
           <OwnerRouter exact path="/owner" component={Pages.OwnerMainPage} />
           <OwnerRouter exact path="/owner/detail/:id" component={Pages.OwnerRestaurantDetailPage} />
           <OwnerRouter exact path="/owner/add" component={Pages.AddRestaurantPage} />
-          <OwnerRouter exact path="/owner/edit/:id" component={Pages.EditRestaurantPage} />
           <OwnerRouter exact path="/owner/reservation" component={Pages.ReservationTodayPage} />
           <OwnerRouter exact path="/owner/reservation-total" component={Pages.ReservationTotalPage} />
           <Route component={Pages.NotFoundPage} />
