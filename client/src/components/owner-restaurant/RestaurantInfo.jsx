@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import editRestaurantInfo from "@services/restaurant/edit-restaurant-info";
-import { options } from "@pages/owner/AddRestaurantPage";
+import days from "@utils/days-array";
+import dayIntToString from "@utils/day-int-to-string";
 import { Row, Col, Space, Typography, Modal, message, Radio, InputNumber, DatePicker, Button, Checkbox } from "antd";
 import { RiEdit2Fill } from "react-icons/ri";
 import { AiFillEdit, AiFillCheckCircle } from "react-icons/ai";
@@ -148,7 +149,7 @@ const RestaurantInfo = ({ info, onUpdate }) => {
                 "없음"
               )
             ) : (
-              <Checkbox.Group options={options} value={closeDate} onChange={closeDateHandler} />
+              <Checkbox.Group options={days} value={closeDate} onChange={closeDateHandler} />
             )}
           </Col>
           <Col span={1} style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -184,15 +185,6 @@ const RestaurantInfo = ({ info, onUpdate }) => {
       </Space>
     </>
   );
-};
-
-const dayIntToString = (arr) => {
-  return arr
-    .reduce((acc, el) => {
-      acc.push(options.find((option) => option.value === el).label);
-      return acc;
-    }, [])
-    .join(", ");
 };
 
 const ParagraphStyled = styled(Paragraph)`

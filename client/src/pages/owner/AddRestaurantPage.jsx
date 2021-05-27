@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import MainTitle from "@components/common/MainTitle";
 import addRestaurant from "@services/restaurant/add-restaurant";
 import { addOwnerRestaurant } from "@actions/owner-restaurant";
+import days from "@utils/days-array";
 import { Form, Input, Button, message, Radio, InputNumber, Checkbox, DatePicker } from "antd";
 import styled from "styled-components";
 
@@ -48,7 +49,7 @@ const AddRestaurantPage = () => {
           />
         </Form.Item>
         <Form.Item label="휴무일" name="closeDate">
-          <Checkbox.Group options={options} />
+          <Checkbox.Group options={days} />
         </Form.Item>
         <Form.Item
           label="전화번호"
@@ -96,15 +97,4 @@ const Wrapper = styled.div`
   }
 `;
 
-const options = [
-  { label: "일", value: 0 },
-  { label: "월", value: 1 },
-  { label: "화", value: 2 },
-  { label: "수", value: 3 },
-  { label: "목", value: 4 },
-  { label: "금", value: 5 },
-  { label: "토", value: 6 },
-];
-
-export { options };
 export default AddRestaurantPage;

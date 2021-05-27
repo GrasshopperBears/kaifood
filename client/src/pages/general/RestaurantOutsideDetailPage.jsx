@@ -6,6 +6,7 @@ import RestaurantInfo from "@components/restaurant/RestaurantInfo";
 import RestaurantOutCampusMenu from "@components/common/RestaurantOutCampusMenu";
 import getRestaurantInfo from "@services/restaurant/get-restaurant-info";
 import getRestaurantMenus from "@services/menu-out-campus/get-restaurant-menus";
+import workingTimeString from "@utils/working-time-string";
 import { Spin, Divider, Button, message } from "antd";
 import styled from "styled-components";
 
@@ -18,11 +19,12 @@ const RestaurantOutsideDetailPage = () => {
 
   const startRervation = async () => {
     if (!initialized || !authorized) return message.warn("로그인 후 진행해주세요");
-    history.push({ pathname: `/restaurant/outside/${id}/reservation`, state: { name: restaurantInfo.name } });
+    history.push({ pathname: `/restaurant/outside/${id}/reservation`, state: { restaurantInfo, menus } });
   };
 
   const initRestaurant = async () => {
     const result = await getRestaurantInfo(id);
+    if (!result) history.push("/restaurant/out-campus");
     setRestaurantInfo(result);
     const menuResult = await getRestaurantMenus(id);
     setMenus(menuResult);
@@ -36,7 +38,11 @@ const RestaurantOutsideDetailPage = () => {
     <>
       <MainTitle>{restaurantInfo.name}</MainTitle>
       <RestaurantInfoWrapper>
-        <RestaurantInfo time={restaurantInfo.time} address={restaurantInfo.address} phoneNumber={restaurantInfo.phoneNumber} />
+        <RestaurantInfo
+          time={workingTimeString(restaurantInfo.outCampusTime)}
+          address={restaurantInfo.address}
+          phoneNumber={restaurantInfo.phoneNumber}
+        />
       </RestaurantInfoWrapper>
       <Description>{restaurantInfo.description}</Description>
       {menus.length > 0 && restaurantInfo.provideReservation && (
