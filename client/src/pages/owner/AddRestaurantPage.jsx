@@ -73,7 +73,7 @@ const AddRestaurantPage = () => {
           hidden={!showReservationNumber}
           rules={[
             { required: showReservationNumber, message: "최대 예약 인원을 입력해주세요" },
-            { min: 1, message: "1명 이상의 인원을 입력해주세요" },
+            { type: "number", min: 1, message: "1명 이상의 인원을 선택해주세요" },
           ]}
         >
           <InputNumber />
