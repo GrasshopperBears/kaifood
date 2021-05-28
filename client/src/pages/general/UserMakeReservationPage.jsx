@@ -6,7 +6,8 @@ import MenuInReservation from "@components/reservation/MenuInReservation";
 import getRestaurantInfo from "@services/restaurant/get-restaurant-info";
 import getRestaurantMenus from "@services/menu-out-campus/get-restaurant-menus";
 import getReservationPossible from "@services/reservation/get-reservation-possible";
-import { Typography, Form, DatePicker, InputNumber, Spin, Row, Col, Card, Button } from "antd";
+import requestReservation from "@services/reservation/request-reservation";
+import { Typography, Form, DatePicker, InputNumber, Spin, Row, Col, Card, Button, message } from "antd";
 import styled from "styled-components";
 
 const { Text } = Typography;
@@ -56,7 +57,12 @@ const UserMakeReservationPage = () => {
     initRestaurant();
   }, [id, initRestaurant]);
 
-  const submitHandler = async (values) => {};
+  const submitHandler = async (values) => {
+    const { datetime, peopleNumber } = values;
+    const result = await requestReservation(id, moment(datetime).format("YYYYMMDDTHHmm"), { peopleNumber, menus: selectedMenus });
+    if (!result.success) return message.error("에러가 발생했습니다");
+    else history.push("/reservation");
+  };
 
   const selectMenuHandler = useCallback(
     (menuId, count) => {
