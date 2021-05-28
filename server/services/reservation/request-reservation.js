@@ -1,5 +1,6 @@
 import Reservation from "../../models/reservation";
 import MenuOutCampus from "../../models/menu-out-campus";
+import { io, connectedOwner } from "../../bin/www";
 
 const checkMenuValidity = async (rid, menus) => {
   const order = [];
@@ -20,7 +21,8 @@ const requestReservation = async (req, res) => {
   const orders = await checkMenuValidity(rid, menus);
   if (!orders) return res.json({ success: false });
   try {
-    await Reservation.create({ customer, restaurant: rid, datetime, peopleNumber, orders });
+    const newReservation = await Reservation.create({ customer, restaurant: rid, datetime, peopleNumber, orders });
+    io.to(connectedOwner.get(req.params.id)).emit("new reservation", newReservation);
     res.json({ success: true });
   } catch (e) {
     console.error(e);
