@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-  menuId: mongoose.Schema.Types.ObjectId,
+  menuId: String,
   number: Number,
 });
 

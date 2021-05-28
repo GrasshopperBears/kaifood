@@ -29,7 +29,7 @@ const checkReservationValidity = async (req, res, next) => {
 
     const overlapReservation = await Reservation.find({
       restaurant: rid,
-      time: { $lte: datetime.subtract(30, "minutes"), $lte: datetime.add(30, "minutes") },
+      time: { $gte: datetime.subtract(30, "minutes").utc(), $lte: datetime.add(30, "minutes").utc() },
     });
     const currentPeople = overlapReservation.reduce((acc, reservation) => {
       acc += reservation.peopleNumber;
@@ -38,6 +38,8 @@ const checkReservationValidity = async (req, res, next) => {
     req.body.reservationValidity = {
       possible: currentPeople < result.maxReservationNumber,
       currentMaximum: result.maxReservationNumber - currentPeople,
+      datetime,
+      rid,
     };
   } catch (e) {
     console.error(e);
