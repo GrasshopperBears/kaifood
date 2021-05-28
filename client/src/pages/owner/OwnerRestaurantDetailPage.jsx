@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import socketClient from "socket.io-client";
 import { useParams } from "react-router-dom";
 import CenterDiv from "@components/common/CenterDiv";
 import MainTitle from "@components/common/MainTitle";
@@ -22,7 +23,12 @@ const OwnerRestaurantDetailPage = () => {
   };
 
   useEffect(() => {
+    const socket = socketClient(process.env.REACT_APP_SERVER_SOCKET, { query: `rid=${id}` });
     updateRestaurantInfo();
+    socket.on("new reservation", (reservation) => {
+      // TODO: do something with reservation info
+    });
+    return socket.close;
   }, [id]);
 
   return pending ? (
