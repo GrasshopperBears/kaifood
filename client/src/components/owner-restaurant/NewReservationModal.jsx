@@ -6,15 +6,14 @@ import moment from "moment";
 const { Title } = Typography;
 
 const NewReservationModal = ({ info, onOk, onReject, onLater, allClear }) => {
-  const { id, datetime, orders, peopleNumber } = info;
   const okHandler = () => {
-    onOk(id);
+    onOk(info.id);
   };
   const rejectHandler = () => {
-    onReject(id);
+    onReject(info.id);
   };
   const laterHandler = () => {
-    onLater(id);
+    onLater(info.id);
   };
 
   return (
@@ -25,14 +24,18 @@ const NewReservationModal = ({ info, onOk, onReject, onLater, allClear }) => {
       onCancel={allClear}
       style={{ marginTop: "100px" }}
     >
-      <Title level={5}>예약 일시: {moment(datetime).format("YYYY-MM-DD HH시 mm분")}</Title>
-      <Title level={5}>예약 인원: {peopleNumber}명</Title>
-      <Title level={5}>예약 메뉴</Title>
-      {orders.map(({ result: { name }, number }) => (
-        <Typography>
-          {number} x {name}
-        </Typography>
-      ))}
+      {info && (
+        <>
+          <Title level={5}>예약 일시: {moment(info.datetime).format("YYYY-MM-DD HH시 mm분")}</Title>
+          <Title level={5}>예약 인원: {info.peopleNumber}명</Title>
+          <Title level={5}>예약 메뉴</Title>
+          {info.orders.map(({ result: { name, _id }, number }) => (
+            <Typography key={_id}>
+              {number} x {name}
+            </Typography>
+          ))}
+        </>
+      )}
     </Modal>
   );
 };
