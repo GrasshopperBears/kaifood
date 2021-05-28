@@ -8,7 +8,8 @@ import MenuInfo from "@components/owner-restaurant/MenuInfo";
 import NewReservationModal from "@components/owner-restaurant/NewReservationModal";
 import ReservationInfo from "@components/owner-restaurant/ReservationInfo";
 import getRestaurantInfo from "@services/restaurant/get-restaurant-info";
-import { Spin, Tabs } from "antd";
+import updateReservationApproved from "@services/reservation/update-reservation-approved";
+import { Spin, Tabs, message } from "antd";
 
 const { TabPane } = Tabs;
 
@@ -38,10 +39,22 @@ const OwnerRestaurantDetailPage = () => {
     };
   }, [id, reservationQueue]);
 
-  const acceptReservation = (id) => {};
-  const rejectReservation = (id) => {};
-  const ignoreLastReservation = (id) => {};
-  const clearReservationQueue = (id) => {};
+  const acceptReservation = async (reservationId) => {
+    const result = await updateReservationApproved(id, reservationId, true);
+    removeLastReservation();
+    if (!result) message.error("오류가 발생했습니다");
+  };
+  const rejectReservation = async (reservationId) => {
+    const result = await updateReservationApproved(id, reservationId, false);
+    removeLastReservation();
+    if (!result) message.error("오류가 발생했습니다");
+  };
+  const removeLastReservation = () => {
+    setReservationQueue(reservationQueue.filter((_, idx) => idx !== 0));
+  };
+  const clearReservationQueue = () => {
+    setReservationQueue([]);
+  };
 
   return pending ? (
     <CenterDiv style={{ marginTop: "100px" }}>
@@ -65,7 +78,7 @@ const OwnerRestaurantDetailPage = () => {
         info={reservationQueue[0] || undefined}
         onOk={acceptReservation}
         onReject={rejectReservation}
-        onLater={ignoreLastReservation}
+        onLater={removeLastReservation}
         allClear={clearReservationQueue}
       />
     </>

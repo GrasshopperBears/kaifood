@@ -13,7 +13,7 @@ const NewReservationModal = ({ info, onOk, onReject, onLater, allClear }) => {
     onReject(info.id);
   };
   const laterHandler = () => {
-    onLater(info.id);
+    onLater();
   };
 
   return (
