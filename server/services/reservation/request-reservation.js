@@ -7,7 +7,7 @@ const checkMenuValidity = async (rid, menus) => {
   for (const [menuId, number] of Object.entries(menus)) {
     const result = await MenuOutCampus.findById(menuId);
     if (!result || !result.restaurant.equals(rid)) return false;
-    order.push({ menuId, number });
+    order.push({ result, number });
   }
   return order;
 };
@@ -22,7 +22,7 @@ const requestReservation = async (req, res) => {
   if (!orders) return res.json({ success: false });
   try {
     const newReservation = await Reservation.create({ customer, restaurant: rid, datetime, peopleNumber, orders });
-    io.to(connectedOwner.get(req.params.id)).emit("new reservation", newReservation);
+    io.to(connectedOwner.get(req.params.id)).emit("new reservation", { id: newReservation._id, orders, peopleNumber, datetime });
     res.json({ success: true });
   } catch (e) {
     console.error(e);
