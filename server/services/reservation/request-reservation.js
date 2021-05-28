@@ -1,13 +1,15 @@
+import mongoose from "mongoose";
 import Reservation from "../../models/reservation";
 import MenuOutCampus from "../../models/menu-out-campus";
 import { io, connectedOwner } from "../../bin/www";
 
 const checkMenuValidity = async (rid, menus) => {
   const order = [];
-  for (const [menuId, number] of Object.entries(menus)) {
+  for (const [id, number] of Object.entries(menus)) {
+    const menuId = mongoose.Types.ObjectId(id);
     const result = await MenuOutCampus.findById(menuId);
     if (!result || !result.restaurant.equals(rid)) return false;
-    order.push({ result, number });
+    order.push({ menuId, number, result });
   }
   return order;
 };
