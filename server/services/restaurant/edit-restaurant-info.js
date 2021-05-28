@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Restaurants from "../../models/restaurant";
 
 const editRestaurantInfo = async (req, res) => {
-  const rid = mongoose.Types.ObjectId(req.params.rid);
+  const rid = mongoose.Types.ObjectId(req.params.id);
   const uid = req.body.uid;
   const updateInfo = req.body;
   try {
