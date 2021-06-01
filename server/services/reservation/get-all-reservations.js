@@ -6,7 +6,7 @@ const getAllReservations = async (req, res) => {
     const result = await Reservation.find({ customer: uid })
       .populate("orders.menuId", "name")
       .populate("restaurant", "name")
-      .sort("datetime");
+      .sort({ datetime: -1 });
     res.json(result);
   } catch (e) {
     console.error(e);
