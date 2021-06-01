@@ -2,13 +2,14 @@ import React, { useCallback } from "react";
 import { isBrowser } from "react-device-detect";
 import { useHistory } from "react-router-dom";
 import RestaurantInfo from "./RestaurantInfo";
+import workingTimeString from "@utils/working-time-string";
 import { Card } from "antd";
 import styled from "styled-components";
 import { MdRestaurantMenu } from "react-icons/md";
 
 const RestaurantCard = ({ info, url }) => {
   const history = useHistory();
-  const { name, phoneNumber, address, time } = info;
+  const { name, phoneNumber, address, time, restaurantType: type, outCampusTime } = info;
 
   const clickHandler = useCallback(() => {
     if (url) history.push(url);
@@ -21,7 +22,11 @@ const RestaurantCard = ({ info, url }) => {
       hoverable={isBrowser && (info.restaurantType === "restaurant-in" || info.restaurantType === "restaurant-out")}
     >
       <div style={{ width: "100%" }}>
-        <RestaurantInfo time={time} address={address} phoneNumber={phoneNumber} />
+        <RestaurantInfo
+          time={type === "restaurant-out" ? workingTimeString(outCampusTime) : time}
+          address={address}
+          phoneNumber={phoneNumber}
+        />
       </div>
       {(info.restaurantType === "restaurant-in" || info.restaurantType === "restaurant-out") && (
         <MenuDiv>
