@@ -5,10 +5,12 @@ import checkReservationValidity from "../services/reservation/check-reservation-
 import getReservationPossible from "../services/reservation/get-reservation-possible";
 import requestReservation from "../services/reservation/request-reservation";
 import updateReservationApproved from "../services/reservation/update-reservation-approved";
+import getOwnerReservations from "../services/reservation/get-owner-reservations";
 
 const router = express.Router();
 
 router.get("/check/:id/:datetime", checkReservationValidity, getReservationPossible);
+router.get("/:id/reservations", isOwner, getOwnerReservations);
 router.get("/all", getAllReservations);
 router.post("/:id/:datetime", checkReservationValidity, requestReservation);
 router.patch("/:id/approved", isOwner, updateReservationApproved);
