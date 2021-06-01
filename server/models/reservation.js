@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-  menuId: mongoose.Schema.Types.ObjectId,
+  menuId: { type: mongoose.Schema.Types.ObjectId, ref: "MenuOutCampus" },
   number: Number,
 });
 
 const reservationSchema = new mongoose.Schema({
   customer: { type: String, ref: "User" },
   restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
-  time: { type: Date, required: true },
+  datetime: { type: Date, required: true },
   pending: { type: Boolean, default: true },
   approved: { type: Boolean, default: false },
   peopleNumber: Number,

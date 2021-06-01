@@ -14,6 +14,7 @@ const restaurantSchema = new mongoose.Schema({
   maxReservationNumber: { type: Number, default: 0 },
   approved: { type: Boolean, default: false },
   description: String,
+  outCampusTime: { type: { closeDate: [{ type: Number }], startTime: Date, endTime: Date } },
 });
 
 const Restaurants = mongoose.model("Restaurant", restaurantSchema);

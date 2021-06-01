@@ -10,7 +10,7 @@ import http from "http";
 import debug_module from "debug";
 
 const debug = debug_module("kaifood:server");
-
+const connectedOwner = new Map();
 /**
  * Get port from environment and store in Express.
  */
@@ -24,9 +24,14 @@ app.set("port", port);
 
 const server = http.createServer(app);
 
-const io = new WsServer(server);
+const io = new WsServer(server, {
+  cors: {
+    origin: [process.env.CLIENT_ADDR],
+    methods: ["GET", "POST"],
+  },
+});
 io.on("connection", (socket) => {
-  console.log("socket connected");
+  if (socket.handshake.query.rid) connectedOwner.set(socket.handshake.query.rid, socket.id);
 });
 
 /**
@@ -72,3 +77,5 @@ const onListening = () => {
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
+
+export { io, connectedOwner };

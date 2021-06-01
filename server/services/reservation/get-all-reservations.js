@@ -3,7 +3,10 @@ import Reservation from "../../models/reservation";
 const getAllReservations = async (req, res) => {
   const uid = req.body.uid;
   try {
-    const result = await Reservation.find({ customer: uid });
+    const result = await Reservation.find({ customer: uid })
+      .populate("orders.menuId", "name")
+      .populate("restaurant", "name")
+      .sort({ datetime: -1 });
     res.json(result);
   } catch (e) {
     console.error(e);

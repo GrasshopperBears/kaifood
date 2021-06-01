@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Empty } from "antd";
 import MainTitle from "@components/common/MainTitle";
+import UserReservationCard from "@components/reservation/UserReservationCard";
 import getAllReservations from "@services/reservation/get-all-reservations";
 import { GiSadCrab } from "react-icons/gi";
 
@@ -21,7 +22,7 @@ const ReservationPage = () => {
     <>
       <MainTitle>예약 내역</MainTitle>
       {reservations.length ? (
-        reservations.map((el) => <p>{el}</p>)
+        reservations.map((el) => <UserReservationCard info={el} key={el._id} />)
       ) : (
         <Empty image={<GiSadCrab size="80" />} description="예약 내역이 없습니다" style={{ marginTop: "100px" }} />
       )}
