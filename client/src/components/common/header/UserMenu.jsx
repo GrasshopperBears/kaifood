@@ -90,6 +90,9 @@ const UserMenu = ({ closeUserMenu }) => {
 const MenuSingleStyled = styled.div`
   padding: 7px 0;
   text-align: center;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export default UserMenu;
