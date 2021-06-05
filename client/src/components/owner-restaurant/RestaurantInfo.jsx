@@ -86,6 +86,7 @@ const RestaurantInfo = ({ info, onUpdate }) => {
   };
   const editCloseDate = async () => {
     const originalCloseDate = info.outCampusTime.closeDate;
+    if (!originalCloseDate?.length || !closeDate?.length) return setDisableCloseDate(true);
     if (originalCloseDate.length === closeDate.length && originalCloseDate.every((el) => closeDate.includes(el)))
       return setDisableCloseDate(true);
     confirm({
@@ -143,7 +144,7 @@ const RestaurantInfo = ({ info, onUpdate }) => {
           <Col span={8}>휴무일</Col>
           <Col span={15}>
             {disableCloseDate ? (
-              info.outCampusTime.closeDate.length ? (
+              info.outCampusTime.closeDate?.length ? (
                 dayIntToString(info.outCampusTime.closeDate)
               ) : (
                 "없음"
