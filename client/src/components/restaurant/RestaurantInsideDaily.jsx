@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import styled from "styled-components";
 import { Divider, List } from "antd";
 
@@ -24,7 +25,7 @@ const RestaurantInsideDaily = ({ date, menus }) => {
     (!isToday || (isToday && today.getHours() <= 20)) && (
       <>
         <Divider orientation="left">
-          {isToday ? `오늘 (${dateString}, ${day[today.getDay()]}요일)` : `${dateString}, ${day[today.getDay()]}요일`}
+          {isToday ? `오늘 (${dateString}, ${day[today.getDay()]}요일)` : `${dateString}, ${day[moment(date).day()]}요일`}
         </Divider>
         <ListStyled
           bordered
