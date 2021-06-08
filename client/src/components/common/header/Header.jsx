@@ -11,6 +11,7 @@ import firebase from "app-firebase";
 import styled from "styled-components";
 import { Button, Popover } from "antd";
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { MdSend } from "react-icons/md";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,18 +20,22 @@ const Header = () => {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
   const { initialized } = useSelector((state) => state.userTracker);
 
+  // useEffect(() => {
+  //   const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+  //     if (!initialized) {
+  //       if (!user) return dispatch(userCheckLogin());
+  //       const result = await signin(user.uid);
+  //       if (!result.success) return dispatch(userCheckLogin());
+  //       dispatch(userLogin(result.isOwner));
+  //       if (result.isOwner) dispatch(initOwnerRestaurant(result.restaurants));
+  //     }
+  //   });
+  //   return unsubscribe;
+  // }, [initialized, dispatch]);
+
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
-      if (!initialized) {
-        if (!user) return dispatch(userCheckLogin());
-        const result = await signin(user.uid);
-        if (!result.success) return dispatch(userCheckLogin());
-        dispatch(userLogin(result.isOwner));
-        if (result.isOwner) dispatch(initOwnerRestaurant(result.restaurants));
-      }
-    });
-    return unsubscribe;
-  }, [initialized, dispatch]);
+    dispatch(userCheckLogin());
+  }, []);
 
   const openMenu = useCallback(() => {
     setMenuVisible(true);
@@ -60,7 +65,8 @@ const Header = () => {
           content={<UserMenu closeUserMenu={closeUserMenu} />}
           trigger="click"
         >
-          <UserBtn icon={<UserOutlined />} shape="circle" />
+          <UserBtn icon={<MdSend />} shape="circle" />
+          {/* <UserBtn icon={<UserOutlined />} shape="circle" /> */}
         </Popover>
       </HeaderStyled>
       <HeaderDrawer closeMenu={closeMenu} visible={menuVisible} />

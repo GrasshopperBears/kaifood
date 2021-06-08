@@ -72,11 +72,11 @@ const HeaderDrawer = ({ closeMenu, visible }) => {
             <Divider type="vertical" />
             <MdLocalCafe />
           </HeaderDrawerEach>
-          <HeaderDrawerEach onClick={goRestaurantOutsidePage}>
+          {/* <HeaderDrawerEach onClick={goRestaurantOutsidePage}>
             교외 식당
             <Divider type="vertical" />
             <AiOutlineLogout />
-          </HeaderDrawerEach>
+          </HeaderDrawerEach> */}
         </>
       )}
     </DrawerStyled>

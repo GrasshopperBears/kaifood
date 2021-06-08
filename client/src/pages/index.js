@@ -1,35 +1,35 @@
 import { default as GeneralMainPage } from "./general/MainPage";
-import { default as UserReservationPage } from "./general/ReservationPage";
-import MyPage from "./general/MyPage";
 import RestaurantInsideDetailPage from "./general/RestaurantInsideDetailPage";
-import UserMakeReservationPage from "./general/UserMakeReservationPage";
 import RestaurantGeneralPage from "./general/RestaurantGeneralPage";
 import RestaurantInsidePage from "./general/RestaurantInsidePage";
-import RestaurantOutsidePage from "./general/RestaurantOutsidePage";
-import AddRestaurantPage from "./owner/AddRestaurantPage";
-import { default as OwnerMainPage } from "./owner/MainPage";
-import RestaurantOutsideDetailPage from "./general/RestaurantOutsideDetailPage";
-import OwnerRestaurantDetailPage from "./owner/OwnerRestaurantDetailPage";
-import ReservationTodayPage from "./owner/ReservationTodayPage";
-import ReservationTotalPage from "./owner/ReservationTotalPage";
 import NotFoundPage from "./NotFoundPage";
+// import { default as UserReservationPage } from "./general/ReservationPage";
+// import MyPage from "./general/MyPage";
+// import UserMakeReservationPage from "./general/UserMakeReservationPage";
+// import RestaurantOutsidePage from "./general/RestaurantOutsidePage";
+// import AddRestaurantPage from "./owner/AddRestaurantPage";
+// import { default as OwnerMainPage } from "./owner/MainPage";
+// import RestaurantOutsideDetailPage from "./general/RestaurantOutsideDetailPage";
+// import OwnerRestaurantDetailPage from "./owner/OwnerRestaurantDetailPage";
+// import ReservationTodayPage from "./owner/ReservationTodayPage";
+// import ReservationTotalPage from "./owner/ReservationTotalPage";
 
 const Pages = {
   GeneralMainPage,
-  MyPage,
-  UserReservationPage,
+  RestaurantInsidePage,
   RestaurantGeneralPage,
   RestaurantInsideDetailPage,
-  UserMakeReservationPage,
-  RestaurantInsidePage,
-  RestaurantOutsidePage,
-  AddRestaurantPage,
-  OwnerRestaurantDetailPage,
-  OwnerMainPage,
-  RestaurantOutsideDetailPage,
-  ReservationTodayPage,
-  ReservationTotalPage,
   NotFoundPage,
+  // MyPage,
+  // UserReservationPage,
+  // UserMakeReservationPage,
+  // RestaurantOutsidePage,
+  // AddRestaurantPage,
+  // OwnerRestaurantDetailPage,
+  // OwnerMainPage,
+  // RestaurantOutsideDetailPage,
+  // ReservationTodayPage,
+  // ReservationTotalPage,
 };
 
 export default Pages;

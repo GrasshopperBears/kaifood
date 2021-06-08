@@ -76,19 +76,29 @@ const UnauthorizedUserMenu = ({ closeUserMenu }) => {
   );
 };
 
+const SuggestMenu = () => {
+  const GOOGLE_FORM_URL = "https://forms.gle/XJf8GSb7yn4VKcYq7";
+  const goSuggestForm = () => {
+    window.open(GOOGLE_FORM_URL, "_blank");
+  };
+
+  return <MenuSingle content="건의하기 / 오류 제보" action={goSuggestForm} />;
+};
+
 const UserMenu = ({ closeUserMenu }) => {
   const { authorized, initialized } = useSelector((state) => state.userTracker);
 
   return (
-    <>
-      {initialized &&
-        (authorized ? <AuthorizedUserMenus closeUserMenu={closeUserMenu} /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />)}
-    </>
+    <>{initialized && <SuggestMenu closeUserMenu={closeUserMenu} />}</>
+    // <>
+    //   {initialized &&
+    //     (authorized ? <AuthorizedUserMenus closeUserMenu={closeUserMenu} /> : <UnauthorizedUserMenu closeUserMenu={closeUserMenu} />)}
+    // </>
   );
 };
 
 const MenuSingleStyled = styled.div`
-  padding: 7px 0;
+  padding: 10px 0;
   text-align: center;
   :hover {
     cursor: pointer;
