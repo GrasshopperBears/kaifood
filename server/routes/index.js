@@ -9,12 +9,12 @@ import identifyUser from "../services/user/identify-user";
 
 const router = express.Router();
 
-router.use("/api/user", userRouter);
+// router.use("/api/user", userRouter);
 router.use("/api/restaurant", restaurantRouter);
 router.use("/api/menu-in-campus", menuInCampusRouter);
-router.use("/api/menu-out-campus", menuOutCampusRouter);
-router.use("/api/reservation", identifyUser, reservationRouter);
-router.use("/api/announcement", announcementRouter);
+// router.use("/api/menu-out-campus", menuOutCampusRouter);
+// router.use("/api/reservation", identifyUser, reservationRouter);
+// router.use("/api/announcement", announcementRouter);
 
 router.get("/", (req, res, next) => {
   res.sendFile(path.resolve("dist", "index.html"));
