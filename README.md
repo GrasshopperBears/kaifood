@@ -1,10 +1,13 @@
 # kaifood
 
 To start project, you have to set configuration for client and server.
+This project is using [`dotenv`](https://www.npmjs.com/package/dotenv) library for security.
 
 ## Client configuration
 
-create `/client/.env` and add configuration.
+### `.env` configuration
+
+Create `/client/.env` and add configuration.
 
 ```
 BUILD_PATH='../server/dist'
@@ -16,8 +19,36 @@ REACT_APP_SERVER_SOCKET=
 - `REACT_APP_SERVER_URL`: Server URL for API
 - `REACT_APP_SERVER_SOCKET`: Server URL for websocket
 
+### Firebase configuration
+
+Create `/client/src/firebase-config.js` and add configuration
+
+```js
+import firebase from "firebase";
+
+const firebaseConfig = {
+  apiKey: "FIREBASE_API_KEY",
+  authDomain: "FIREBASE_AUTH_DOMAIN",
+  projectId: "FIREBASE_PROJECT_ID",
+  storageBucket: "FIREBASE_STORAGE_BUCKET",
+  messagingSenderId: "FIREBASE_MESSAGEING_SENDER_ID",
+  appId: "FIREBASE_APP_ID",
+  measurementId: "FIREBASE_MEASERMENT_ID",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+export default firebase;
+```
+
+For more explanation, refer to the [document](https://firebase.google.com/docs/web/setup)
+
 
 ## Server configuration
+
+### `.env` configuration
 
 Create `/server/.env` and add configuration.
 
