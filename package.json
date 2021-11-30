@@ -20,6 +20,7 @@
   "homepage": "https://github.com/GrasshopperBears/kaifood#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.6"
+    "cheerio": "^1.0.0-rc.6",
+    "dotenv": "^10.0.0"
   }
 }
