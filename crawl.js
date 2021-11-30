@@ -1,7 +1,11 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import restaurantCodes from "./info/restaurants-inside-code.js";
+<<<<<<< HEAD
 import dotenv from "dotenv";
+=======
+import dotenv from "dotenv"
+>>>>>>> 662c02e13971b0e28549b27b4f81b65da2a2fd4a
 
 dotenv.config();
 
