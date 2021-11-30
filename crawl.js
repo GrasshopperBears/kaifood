@@ -1,6 +1,9 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import restaurantCodes from "./info/restaurants-inside-code.js";
+import dotenv from "dotenv"
+
+dotenv.config();
 
 let repeatCount = 0;
 const REPEAT_MAX_COUNT = 5;
@@ -69,7 +72,7 @@ const main = async () => {
     crawlData[key] = restaurantCrawl;
   }
   try {
-    await axios.post("http://localhost:4000/api/menu-in-campus", { crawlData });
+    await axios.post(`${process.env.SERVER_ADDR}/api/menu-in-campus`, { crawlData });
     console.log("Menu updated successfully");
   } catch (e) {
     console.error(e);
