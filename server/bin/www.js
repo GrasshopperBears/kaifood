@@ -15,8 +15,7 @@ const connectedOwner = new Map();
  * Get port from environment and store in Express.
  */
 
-const port = 4000;
-app.set("port", port);
+const port = process.env.PORT || 4000;
 
 /**
  * Create HTTP server.
