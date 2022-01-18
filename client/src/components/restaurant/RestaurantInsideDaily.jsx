@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import styled from "styled-components";
 import { Divider, List } from "antd";
 
@@ -13,8 +14,8 @@ const checkIsToday = (date) => {
 const RestaurantInsideDaily = ({ date, menus }) => {
   const [today] = useState(new Date());
   const [isToday, setIsToday] = useState(false);
-  const dateInstance = new Date(date);
-  const dateString = `${dateInstance.getMonth() + 1}월 ${dateInstance.getDate()}일`;
+  const dateInstance = moment(date);
+  const dateString = `${dateInstance.month() + 1}월 ${dateInstance.date()}일`;
 
   useEffect(() => {
     if (checkIsToday(date)) setIsToday(true);
@@ -24,7 +25,7 @@ const RestaurantInsideDaily = ({ date, menus }) => {
     (!isToday || (isToday && today.getHours() <= 20)) && (
       <>
         <Divider orientation="left">
-          {isToday ? `오늘 (${dateString}, ${day[today.getDay()]}요일)` : `${dateString}, ${day[today.getDay()]}요일`}
+          {isToday ? `오늘 (${dateString}, ${day[dateInstance.day()]}요일)` : `${dateString}, ${day[dateInstance.day()]}요일`}
         </Divider>
         <ListStyled
           bordered
